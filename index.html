@@ -61,6 +61,7 @@
         <h3 id="question-text"></h3>
         <div id="options-container"></div>
         <button class="btn" onclick="backToMenu()" style="margin-top:20px;">Назад в меню</button>
+        <button id="main-hint-btn" class="btn" style="background-color: #fff3cd; display: block; margin-top: 10px;" onclick="showCurrentHint()">💡 Показать подсказку</button>
     </div>
     
     <div id="text-area">
@@ -346,6 +347,14 @@ function showQuestion() {
         };
         container.appendChild(btn);
     });
+}
+        function showCurrentHint() {
+    const q = currentQuestions[currentIndex];
+    if (q && q.hint) {
+        alert("Правило: " + q.hint);
+    } else {
+        alert("К этому вопросу пока нет подсказки.");
+    }
 }
 
 function startText(textKey) {
