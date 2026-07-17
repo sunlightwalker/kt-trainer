@@ -29,53 +29,37 @@
     <script>
         const data = {
             level1: [
-                { q: "The skyscraper ___ by a famous architect last year.", a: ["designs", "was designed", "designed"], correct: 1 },
-                { q: "I ___ the report yet.", a: ["don't finish", "haven't finished", "didn't finish"], correct: 1 }
-{ q: "The foundation ___ yesterday.", a: ["poured", "was poured", "pours"], correct: 1 },
-{ q: "The project ___ by next month.", a: ["will be completed", "completes", "will complete"], correct: 0 },
-{ q: "The documents ___ by the manager right now.", a: ["are being signed", "are signed", "were signed"], correct: 0 },
-{ q: "This building ___ by a famous architect.", a: ["is designed", "designs", "was designed"], correct: 2 },
-{ q: "The project ___ last week.", a: ["was approved", "approved", "is approved"], correct: 0 },
-{ q: "My car ___ at the moment.", a: ["is being repaired", "is repaired", "was repaired"], correct: 0 },
-{ q: "The room ___ right now.", a: ["is being cleaned", "is cleaned", "was being cleaned"], correct: 0 },
-{ q: "While I was in the shop, my car ___.", a: ["was being repaired", "was repaired", "is being repaired"], correct: 0 },
-{ q: "Look! The grass ___.", a: ["is being cut", "is cut", "was being cut"], correct: 0 },
-{ q: "At 8 a.m. yesterday, the dishes ___.", a: ["were being washed", "were washed", "are being washed"], correct: 0 },
-{ q: "Shh! The secret ___ discussed.", a: ["is being", "is", "was being"], correct: 0 },
-{ q: "The room ___ already ___.", a: ["has been cleaned", "had been cleaned", "is cleaned"], correct: 0 },
-{ q: "By the time I arrived, the cake ___ ___.", a: ["had been eaten", "has been eaten", "was eaten"], correct: 0 },
-{ q: "The letter ___ just ___.", a: ["has been sent", "had been sent", "was sent"], correct: 0 },
-{ q: "The job ___ finished by last Monday.", a: ["had been", "has been", "was"], correct: 0 },
-{ q: "My phone ___ ___ stolen!", a: ["has been", "had been", "is being"], correct: 0 },
-{ q: "The task ___ ___ done today.", a: ["must be", "must being", "must have been"], correct: 0 },
-{ q: "The keys ___ ___ found in the drawer.", a: ["can be", "can being", "could be"], correct: 0 },
-{ q: "You ___ ___ informed about the changes.", a: ["should be", "should being", "were"], correct: 0 },
-{ q: "The room ___ ___ entered without permission.", a: ["may not be", "may not being", "must not be"], correct: 0 },
-{ q: "The problem ___ ___ solved easily.", a: ["could be", "could being", "can be"], correct: 0 },
-{ q: "Flowers ___ in the garden every morning.", a: ["are watered", "were watered", "are being watered"], correct: 0 },
-{ q: "English ___ in many countries.", a: ["is spoken", "was spoken", "is being spoken"], correct: 0 },
-{ q: "The new bridge ___ next year.", a: ["will be built", "is built", "was built"], correct: 0 },
-{ q: "He ___ ___ engineering for 4 years.", a: ["has been studying", "is studying", "studies"], correct: 0 },
-{ q: "By 10 AM, we ___ ___ arrived at the site.", a: ["had already", "have already", "already"], correct: 0 },
-{ q: "They ___ ___ this movie yet.", a: ["haven't seen", "didn't see", "don't see"], correct: 0 },
-{ q: "He ___ never ___ to Astana.", a: ["has", "was", "is"], correct: 0 }
-            ],
-            level2: [
-                { q: "If it rains, the work ___.", a: ["stops", "will stop", "stopped"], correct: 1 },
-                { q: "If I ___ his number, I would call him.", a: ["know", "knew", "will know"], correct: 1 }
-            ],
-            level3: [
-                { q: "He said: 'I am working now.' → He said he was working ___.", a: ["now", "then", "at that moment"], correct: 1 },
-                { q: "She said: 'I will finish it tomorrow.' → She said she would finish it ___.", a: ["tomorrow", "the next day", "the day before"], correct: 1 }
-            ],
-            level4: [
-                { q: "The project failed. They ___ conducted a more thorough study.", a: ["should", "should have", "must have"], correct: 1 },
-                { q: "You ___ brought your laptop, we have computers here.", a: ["don't need", "needn't have", "mustn't"], correct: 1 }
-            ],
-            level5: [
-                { q: "Hardly ___ entered the room when the phone rang.", a: ["he had", "had he", "did he"], correct: 1 },
-                { q: "I’d rather you ___ at home tonight.", a: ["stay", "stayed", "to stay"], correct: 1 }
-            ]
+    { q: "The skyscraper ___ by a famous architect last year.", a: ["designs", "was designed", "designed"], correct: 1 },
+    { q: "I ___ the report yet.", a: ["don't finish", "haven't finished", "didn't finish"], correct: 1 },
+    { q: "The foundation ___ yesterday.", a: ["poured", "was poured", "pours"], correct: 1 },
+    { q: "The project ___ by next month.", a: ["will be completed", "completes", "will complete"], correct: 0 },
+    { q: "The documents ___ by the manager right now.", a: ["are being signed", "are signed", "were signed"], correct: 0 },
+    { q: "This building ___ by a famous architect.", a: ["is designed", "designs", "was designed"], correct: 2 },
+    { q: "The project ___ last week.", a: ["was approved", "approved", "is approved"], correct: 0 },
+    { q: "My car ___ at the moment.", a: ["is being repaired", "is repaired", "was repaired"], correct: 0 },
+    { q: "The room ___ right now.", a: ["is being cleaned", "is cleaned", "was being cleaned"], correct: 0 },
+    { q: "While I was in the shop, my car ___.", a: ["was being repaired", "was repaired", "is being repaired"], correct: 0 },
+    { q: "Look! The grass ___.", a: ["is being cut", "is cut", "was being cut"], correct: 0 },
+    { q: "At 8 a.m. yesterday, the dishes ___.", a: ["were being washed", "were washed", "are being washed"], correct: 0 },
+    { q: "Shh! The secret ___ discussed.", a: ["is being", "is", "was being"], correct: 0 },
+    { q: "The room ___ already ___.", a: ["has been cleaned", "had been cleaned", "is cleaned"], correct: 0 },
+    { q: "By the time I arrived, the cake ___ ___.", a: ["had been eaten", "has been eaten", "was eaten"], correct: 0 },
+    { q: "The letter ___ just ___.", a: ["has been sent", "had been sent", "was sent"], correct: 0 },
+    { q: "The job ___ finished by last Monday.", a: ["had been", "has been", "was"], correct: 0 },
+    { q: "My phone ___ ___ stolen!", a: ["has been", "had been", "is being"], correct: 0 },
+    { q: "The task ___ ___ done today.", a: ["must be", "must being", "must have been"], correct: 0 },
+    { q: "The keys ___ ___ found in the drawer.", a: ["can be", "can being", "could be"], correct: 0 },
+    { q: "You ___ ___ informed about the changes.", a: ["should be", "should being", "were"], correct: 0 },
+    { q: "The room ___ ___ entered without permission.", a: ["may not be", "may not being", "must not be"], correct: 0 },
+    { q: "The problem ___ ___ solved easily.", a: ["could be", "could being", "can be"], correct: 0 },
+    { q: "Flowers ___ in the garden every morning.", a: ["are watered", "were watered", "are being watered"], correct: 0 },
+    { q: "English ___ in many countries.", a: ["is spoken", "was spoken", "is being spoken"], correct: 0 },
+    { q: "The new bridge ___ next year.", a: ["will be built", "is built", "was built"], correct: 0 },
+    { q: "He ___ ___ engineering for 4 years.", a: ["has been studying", "is studying", "studies"], correct: 0 },
+    { q: "By 10 AM, we ___ ___ arrived at the site.", a: ["had already", "have already", "already"], correct: 0 },
+    { q: "They ___ ___ this movie yet.", a: ["haven't seen", "didn't see", "don't see"], correct: 0 },
+    { q: "He ___ never ___ to Astana.", a: ["has", "was", "is"], correct: 0 }
+]
         };
 
         let currentQuestions = [];
