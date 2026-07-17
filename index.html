@@ -61,10 +61,9 @@
         <div id="options-container"></div>
         <button class="btn" onclick="backToMenu()" style="margin-top:20px;">Назад в меню</button>
     </div>
-
-    <div id="text-area" style="padding:20px; background:#fff; border:1px solid #ccc; border-radius:10px; margin-top:20px;">
+    <div id="text-area">
         <h2 id="text-title"></h2>
-        <div id="text-content" style="white-space: pre-line; margin-bottom: 20px; font-size: 16px;"></div>
+        <div id="text-content"></div>
         <div id="text-questions"></div>
         <button class="btn" onclick="backToMenu()" style="margin-top:20px;">Назад в меню</button>
     </div>
@@ -258,26 +257,83 @@ Only some adults celebrate Halloween, and they generally do so by attending part
             currentQuestions = data[lvl];
             currentIndex = 0;
             document.getElementById('menu').style.display = 'none';
-            document.getElementById('game-area').style.display = 'block';
+            document.getElementById('text-area').style.display = 'none'; // Скрываем текст
+            document.getElementById('game-area').style.display = 'block'; // Показываем игру
             showQuestion();
+        }
+
+        function showQuestion() {
+            const q = currentQuestions[currentIndex];
+            document.getElementById('question-text').innerText = (currentIndex + 1) + ". " + q.q;
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            
+            q.a.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'btn';
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    const allBtns = container.querySelectorAll('.btn');
+                    allBtns.forEach(b => b.disabled = true);
+                    if (idx === q.correct) {
+                        btn.classList.add('correct');
+                    } else {
+                        btn.classList.add('wrong');
+                        allBtns[q.correct].classList.add('correct');
+                    }
+                    setTimeout(() => {
+                        currentIndex++;
+                        if (currentIndex < currentQuestions.length) showQuestion();
+                        else alert("Уровень завершен!");
+                    }, 1000);
+                };
+                container.appendChild(btn);
+            });
         }
 
         function startText(textKey) {
             const t = texts[textKey];
             document.getElementById('menu').style.display = 'none';
-            document.getElementById('text-area').style.display = 'block';
+            document.getElementById('game-area').style.display = 'none'; // Скрываем игру
+            document.getElementById('text-area').style.display = 'block'; // Показываем текст
+            
             document.getElementById('text-title').innerText = t.title;
             document.getElementById('text-content').innerText = t.content;
-            // (Логика генерации вопросов)
+            
+            const qContainer = document.getElementById('text-questions');
+            qContainer.innerHTML = ''; 
+            t.questions.forEach((item, index) => {
+                let div = document.createElement('div');
+                div.style.marginTop = "20px";
+                div.innerHTML = `<p><b>${index + 1}. ${item.q}</b></p>`;
+                item.a.forEach((ans, i) => {
+                    div.innerHTML += `<button class="btn" onclick="checkTextAnswer(${index}, ${i}, '${textKey}', this)">${ans}</button>`;
+                });
+                qContainer.appendChild(div);
+            });
+        }
+
+        function checkTextAnswer(qIndex, aIndex, textKey, btn) {
+            const correct = texts[textKey].questions[qIndex].correct;
+            // Отключаем кнопки после выбора
+            const parentDiv = btn.parentElement;
+            const buttons = parentDiv.querySelectorAll('button');
+            buttons.forEach(b => b.disabled = true);
+            
+            if(aIndex === correct) {
+                btn.style.backgroundColor = "#d4edda";
+            } else {
+                btn.style.backgroundColor = "#f8d7da";
+                // Подсвечиваем правильный
+                buttons[correct].style.backgroundColor = "#d4edda";
+            }
         }
 
         function backToMenu() {
             document.getElementById('game-area').style.display = 'none';
-            document.getElementById('text-area').style.display = 'none';
+            document.getElementById('text-area').style.display = 'none'; // Теперь скрываем и текст
             document.getElementById('menu').style.display = 'block';
         }
-        
-        // ... остальной твой JS (showQuestion, и т.д.)
     </script>
 </body>
 </html>
