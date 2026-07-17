@@ -54,6 +54,7 @@
         <button class="btn" onclick="startLevel('level4')">Уровень 4: Modal Verbs</button>
         <button class="btn" onclick="startLevel('level5')">Уровень 5: Mixed Traps</button>
         <button class="btn" onclick="startText('text1')" style="background-color: #e7f3ff;">Текст 1: Halloween</button>
+        <button class="btn" onclick="startText('text2')">Текст 2: Where is Roxy?</button>
     </div>
 
     <div id="game-area">
@@ -248,6 +249,31 @@ Only some adults celebrate Halloween, and they generally do so by attending part
             { q: "What day of the week does Halloween fall on?", a: ["Always Saturday", "Always Friday", "Always Monday", "Varies by year"], correct: 3 },
             { q: "Some adults celebrate Halloween in which of the following ways?", a: ["Trick-or-treating", "Going to bed early", "Attending Halloween parties", "Buying Christmas gifts"], correct: 2 },
             { q: "When does Halloween take place?", a: ["14 February", "25 December", "31 October", "Eight weeks before Christmas"], correct: 2 }
+        ]
+    }
+},
+            text2: {
+        title: "Where is Roxy?",
+        content: `After classes Chloe arrives home, makes a cup of coffee and goes to her bedroom. Everything is quiet and she plays with her pet rats. Chloe has two rats called Zena and Roxy. They live in a cage in Chloe's bedroom. Chloe knows that most people don't like rats. A year ago, Chloe didn't like rats either. Once, her friend Martin showed Chloe his rats and Chloe saw how intelligent and affectionate they were.
+
+When one of Martin's rats had babies, Chloe asked her mum if she could have two pet rats for her birthday present. Her parents didn't like it, but Chloe got an excellent school report and they decided to give Chloe that present.
+
+'There’s one very important rule,' said Chloe's mum. 'The rats live in your bedroom and never go to other rooms, especially the kitchen!'
+
+In her room, Chloe opened the cage. She picked up Roxy and put her on the floor. Then she picked up Zena and put her on her shoulder. Roxy loved to explore climbing furniture and going under Chloe's bed. Zena was quieter and liked sitting on Chloe's shoulder.
+
+Someone knocked on the door. 'Hi, Chloe,' called Mum. 'Mum, come in.' 'I'm going to my aerobics class. I'll return at seven. Dad's on his way home. He's making pasta tonight.' 'OK, Mum', Chloe replied.
+
+Mum went away. Chloe called for Roxy. She started to search the house but she didn’t find Roxy. When Dad came, they looked all over the house but couldn't find Roxy anywhere. Soon Mum came. She was smiling and Roxy was on her shoulder. When she arrived at the gym and opened her bag, she found Roxy sleeping in one of her shoes. She picked her up for the first time and understood that she liked rats too.`,
+        questions: [
+            { q: "Mum’s rule was ‘The rats ____.", a: ["live in their country house", "live in a small box in the garden", "can live in any room in their house", "never leave Chloe’s bedroom"], correct: 3 },
+            { q: "Chloe has got ____ pet rats.", a: ["two", "five", "three", "four"], correct: 0 },
+            { q: "Chloe is aware of the fact that most people _____ rats.", a: ["adore", "don’t like", "admire", "do like"], correct: 1 },
+            { q: "The true statement referring to the text is ____.", a: ["Chloe’s parents always wanted their daughter to have pet rats", "At first, Chloe’s parents didn’t like the idea about pet rats", "Chloe’s mum and dad always wanted their daughter to have pet parrots", "Chloe’s classmates gave Chloe pet rats for her birthday present"], correct: 1 },
+            { q: "The true statement referring to the text is: Chloe’s mum ____", a: ["went to the swimming pool", "went to the gym to do aerobics", "went to the market to buy some food", "decided to prepare pasta"], correct: 1 },
+            { q: "The girl’s name is ____.", a: ["Candy", "Clara", "Cora", "Chloe"], correct: 3 },
+            { q: "On returning from school, Chloe makes ____ and goes to her bedroom.", a: ["green tea", "black tea", "drinks cocoa", "a cup of coffee"], correct: 3 },
+            { q: "The true statement referring to the text is: Chloe", a: ["managed to find Roxy only with Zena’s help", "managed to find Roxy only with Martin’s help", "failed to find because she was in the kitchen", "failed to find Roxy because her pet rat was in the gym"], correct: 3 }
         ]
     }
 };
