@@ -277,90 +277,80 @@ Mum went away. Chloe called for Roxy. She started to search the house but she di
     }
 };
 
-        let currentQuestions = [];
-        let currentIndex = 0;
+let currentQuestions = [];
+let currentIndex = 0;
 
-        function startLevel(lvl) {
-            currentQuestions = data[lvl];
-            currentIndex = 0;
-            document.getElementById('menu').style.display = 'none';
-            document.getElementById('text-area').style.display = 'none'; // Скрываем текст
-            document.getElementById('game-area').style.display = 'block'; // Показываем игру
-            showQuestion();
-        }
+function startLevel(lvl) {
+    if (!data[lvl]) return;
+    currentQuestions = data[lvl];
+    currentIndex = 0;
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('text-area').style.display = 'none';
+    document.getElementById('game-area').style.display = 'block';
+    showQuestion();
+}
 
-        function showQuestion() {
-            const q = currentQuestions[currentIndex];
-            document.getElementById('question-text').innerText = (currentIndex + 1) + ". " + q.q;
-            const container = document.getElementById('options-container');
-            container.innerHTML = '';
-            
-            q.a.forEach((opt, idx) => {
-                const btn = document.createElement('button');
-                btn.className = 'btn';
-                btn.innerText = opt;
-                btn.onclick = () => {
-                    const allBtns = container.querySelectorAll('.btn');
-                    allBtns.forEach(b => b.disabled = true);
-                    if (idx === q.correct) {
-                        btn.classList.add('correct');
-                    } else {
-                        btn.classList.add('wrong');
-                        allBtns[q.correct].classList.add('correct');
-                    }
-                    setTimeout(() => {
-                        currentIndex++;
-                        if (currentIndex < currentQuestions.length) showQuestion();
-                        else alert("Уровень завершен!");
-                    }, 1000);
-                };
-                container.appendChild(btn);
-            });
-        }
-
-        function startText(textKey) {
-            const t = texts[textKey];
-            document.getElementById('menu').style.display = 'none';
-            document.getElementById('game-area').style.display = 'none'; // Скрываем игру
-            document.getElementById('text-area').style.display = 'block'; // Показываем текст
-            
-            document.getElementById('text-title').innerText = t.title;
-            document.getElementById('text-content').innerText = t.content;
-            
-            const qContainer = document.getElementById('text-questions');
-            qContainer.innerHTML = ''; 
-            t.questions.forEach((item, index) => {
-                let div = document.createElement('div');
-                div.style.marginTop = "20px";
-                div.innerHTML = `<p><b>${index + 1}. ${item.q}</b></p>`;
-                item.a.forEach((ans, i) => {
-                    div.innerHTML += `<button class="btn" onclick="checkTextAnswer(${index}, ${i}, '${textKey}', this)">${ans}</button>`;
-                });
-                qContainer.appendChild(div);
-            });
-        }
-
-        function checkTextAnswer(qIndex, aIndex, textKey, btn) {
-            const correct = texts[textKey].questions[qIndex].correct;
-            // Отключаем кнопки после выбора
-            const parentDiv = btn.parentElement;
-            const buttons = parentDiv.querySelectorAll('button');
-            buttons.forEach(b => b.disabled = true);
-            
-            if(aIndex === correct) {
-                btn.style.backgroundColor = "#d4edda";
+function showQuestion() {
+    const q = currentQuestions[currentIndex];
+    document.getElementById('question-text').innerText = (currentIndex + 1) + ". " + q.q;
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.a.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.innerText = opt;
+        btn.onclick = () => {
+            const allBtns = container.querySelectorAll('.btn');
+            allBtns.forEach(b => b.disabled = true);
+            if (idx === q.correct) {
+                btn.classList.add('correct');
             } else {
-                btn.style.backgroundColor = "#f8d7da";
-                // Подсвечиваем правильный
-                buttons[correct].style.backgroundColor = "#d4edda";
+                btn.classList.add('wrong');
+                allBtns[q.correct].classList.add('correct');
+                if(q.hint) alert("Подсказка: " + q.hint);
             }
-        }
+            setTimeout(() => {
+                currentIndex++;
+                if (currentIndex < currentQuestions.length) showQuestion();
+                else alert("Уровень завершен!");
+            }, 1500);
+        };
+        container.appendChild(btn);
+    });
+}
 
-        function backToMenu() {
-            document.getElementById('game-area').style.display = 'none';
-            document.getElementById('text-area').style.display = 'none'; // Теперь скрываем и текст
-            document.getElementById('menu').style.display = 'block';
-        }
+function startText(textKey) {
+    const t = texts[textKey];
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('game-area').style.display = 'none';
+    document.getElementById('text-area').style.display = 'block';
+    document.getElementById('text-title').innerText = t.title;
+    document.getElementById('text-content').innerText = t.content;
+    const qContainer = document.getElementById('text-questions');
+    qContainer.innerHTML = ''; 
+    t.questions.forEach((item, index) => {
+        let div = document.createElement('div');
+        div.innerHTML = `<p><b>${index + 1}. ${item.q}</b></p>`;
+        item.a.forEach((ans, i) => {
+            div.innerHTML += `<button class="btn" onclick="checkTextAnswer(${index}, ${i}, '${textKey}', this)">${ans}</button>`;
+        });
+        qContainer.appendChild(div);
+    });
+}
+
+function checkTextAnswer(qIndex, aIndex, textKey, btn) {
+    const correct = texts[textKey].questions[qIndex].correct;
+    const buttons = btn.parentElement.querySelectorAll('button');
+    buttons.forEach(b => b.disabled = true);
+    btn.style.backgroundColor = (aIndex === correct) ? "#d4edda" : "#f8d7da";
+}
+
+function backToMenu() {
+    document.getElementById('game-area').style.display = 'none';
+    document.getElementById('text-area').style.display = 'none';
+    document.getElementById('menu').style.display = 'block';
+}
     </script>
 </body>
 </html>
