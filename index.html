@@ -43,6 +43,12 @@
         • Want / Decide / Manage + <b>to</b> (I want <b>to read</b>).</p>
     </div>
 </details>
+    <div id="text-area" style="display:none; padding:20px; background:#fff; border:1px solid #ccc; border-radius:10px; margin-top:20px;">
+    <h2 id="text-title"></h2>
+    <div id="text-content" style="white-space: pre-line; margin-bottom: 20px; font-size: 16px;"></div>
+    <div id="text-questions"></div>
+    <button class="btn" onclick="backToMenu()" style="margin-top:20px;">Назад в меню</button>
+</div>
 <body>
 
     <div id="menu">
@@ -221,7 +227,23 @@
     { q: "I am tired ___ waiting.", a: ["of", "in", "from"], correct: 0 },
     { q: "The news ___ very good.", a: ["is", "are", "were"], correct: 0 },
     { q: "Neither he nor I ___ ready.", a: ["am", "is", "are"], correct: 0 }
-]
+],
+            text1: {
+        title: "Halloween",
+        content: `Halloween (also referred to as All Hollows' Eve) is a holiday that's celebrated in America on 31 October of each year, regardless of what day of the week this date falls on. Although it is rooted in religion, Halloween today is enjoyed mainly because of its decorations, costumes, candy, treats, and general excitement, and furthermore, it is enjoyed by most everyone.
+Before Halloween, many individuals carve a design into an orange-colored pumpkin, or a solid, durable vegetable. Once a personally satisfying design is carved, a lit candle is typically put inside a pumpkin, thereby making it a Jack-O-Lantern. At night, this design lights up against the darkness.
+Besides carving pumpkins, some celebrate Halloween by putting decorations up. Supernatural figures, including vampires, ghosts, werewolves, zombies, and more, generally account for most of these decorations. Bugs, spiders, cobwebs, gravestones, and anything else that can be considered creepy can also be found on Halloween, in decoration form.
+Only some adults celebrate Halloween, and they generally do so by attending parties. Inversely, the vast majority of children dress in costume and walk from door to door in search of candy - a practice known as trick or treat - on Halloween. After knocking on a door (houses that participate in Halloween usually leave a light on), one says, "Trick or Treat" and a piece (or pieces!) of candy is given to him or her.`,
+        questions: [
+            { q: "One can expect to see all of the following types of decorations on Halloween except:", a: ["Spiders and other bugs", "Snowflakes and ribbons", "Gravestones and zombies", "Vampires"], correct: 1 },
+            { q: "Before Halloween, many individuals carve a design into an orange-colored ____, or a solid, durable vegetable.", a: ["apple", "cabbage", "tomato", "pumpkin"], correct: 3 },
+            { q: "Before Halloween, many individuals carve a design into an ____- colored pumpkin, or a solid, durable vegetable.", a: ["red", "black", "orange", "blue"], correct: 2 },
+            { q: "Some adults celebrate Halloween in which of the following ways?", a: ["Trick-or-treating", "Going to bed early", "Attending Halloween parties", "Buying Christmas gifts"], correct: 2 },
+            { q: "Halloween (also referred to as All Hollows' Eve) is a holiday that's celebrated in America on ____of each year", a: ["31 September", "11 October", "31 October", "21 September"], correct: 2 },
+            { q: "What day of the week does Halloween fall on?", a: ["Always Saturday", "Always Friday", "Always Monday", "Varies by year"], correct: 3 },
+            { q: "Some adults celebrate Halloween in which of the following ways?", a: ["Trick-or-treating", "Going to bed early", "Attending Halloween parties", "Buying Christmas gifts"], correct: 2 },
+            { q: "When does Halloween take place?", a: ["14 February", "25 December", "31 October", "Eight weeks before Christmas"], correct: 2 }
+        ]
         };
 
         let currentQuestions = [];
@@ -268,6 +290,35 @@
             document.getElementById('game-area').style.display = 'none';
             document.getElementById('menu').style.display = 'block';
         }
+        function startText(textKey) {
+    const t = texts[textKey];
+    document.getElementById('menu').style.display = 'none'; // Скрываем меню
+    document.getElementById('text-area').style.display = 'block'; // Показываем текст
+    
+    document.getElementById('text-title').innerText = t.title;
+    document.getElementById('text-content').innerText = t.content;
+    
+    const qContainer = document.getElementById('text-questions');
+    qContainer.innerHTML = ''; 
+    t.questions.forEach((item, index) => {
+        let div = document.createElement('div');
+        div.style.marginTop = "20px";
+        div.innerHTML = `<p><b>${index + 1}. ${item.q}</b></p>`;
+        item.a.forEach((ans, i) => {
+            div.innerHTML += `<button class="btn" onclick="checkTextAnswer(${index}, ${i}, '${textKey}', this)">${ans}</button>`;
+        });
+        qContainer.appendChild(div);
+    });
+}
+
+function checkTextAnswer(qIndex, aIndex, textKey, btn) {
+    const correct = texts[textKey].questions[qIndex].correct;
+    if(aIndex === correct) {
+        btn.style.backgroundColor = "#d4edda"; // Зеленый
+    } else {
+        btn.style.backgroundColor = "#f8d7da"; // Красный
+    }
+}
     </script>
 </body>
 </html>
