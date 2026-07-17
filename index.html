@@ -293,29 +293,9 @@ function startLevel(lvl) {
 
 function showQuestion() {
     const q = currentQuestions[currentIndex];
-    const questionTextElement = document.getElementById('question-text');
+    document.getElementById('question-text').innerText = (currentIndex + 1) + ". " + q.q;
+    
     const container = document.getElementById('options-container');
-    
-    questionTextElement.innerText = (currentIndex + 1) + ". " + q.q;
-    
-    // Создаем кнопку, если её еще нет
-    let hintBtn = document.getElementById('hint-btn');
-    if (!hintBtn) {
-        hintBtn = document.createElement('button');
-        hintBtn.id = 'hint-btn';
-        hintBtn.className = 'btn';
-        hintBtn.style.backgroundColor = '#fff3cd';
-        hintBtn.style.display = 'block';
-        hintBtn.style.margin = '10px 0';
-        hintBtn.innerText = "💡 Показать правило (Подсказка)";
-        questionTextElement.after(hintBtn);
-    }
-    
-    // Кнопка теперь работает ВСЕГДА, даже после ответа
-    hintBtn.onclick = () => {
-        alert(q.hint || "Для этого вопроса нет специальной подсказки.");
-    };
-
     container.innerHTML = '';
     
     q.a.forEach((opt, idx) => {
@@ -326,24 +306,20 @@ function showQuestion() {
             const allBtns = container.querySelectorAll('.btn');
             allBtns.forEach(b => b.disabled = true);
             
-            // Мы больше НЕ отключаем hintBtn здесь!
-            
             if (idx === q.correct) {
                 btn.classList.add('correct');
             } else {
                 btn.classList.add('wrong');
                 allBtns[q.correct].classList.add('correct');
-                // Подсказка сама всплывет, если ответил неверно
+                // Подсказка сама выскакивает при ошибке:
                 if(q.hint) alert("Правило: " + q.hint);
             }
             
             setTimeout(() => {
                 currentIndex++;
-                // Перед переходом к новому вопросу удаляем старую кнопку, чтобы она обновилась
-                hintBtn.remove();
                 if (currentIndex < currentQuestions.length) showQuestion();
                 else alert("Уровень завершен!");
-            }, 3000); // Увеличил время до 3 секунд, чтобы ты успел прочитать результат
+            }, 3000);
         };
         container.appendChild(btn);
     });
