@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>KT English Trainer</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; }
+        .btn { display: block; width: 100%; margin: 10px 0; padding: 12px; cursor: pointer; border: 1px solid #ddd; border-radius: 8px; background: #fff; }
+        .correct { background-color: #d4edda !important; border-color: #28a745 !important; }
+        .wrong { background-color: #f8d7da !important; border-color: #dc3545 !important; }
+        #game-area { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="menu">
+        <h1>Выберите уровень:</h1>
+        <button class="btn" onclick="startLevel('level1')">Уровень 1: Пассивный залог</button>
+        <button class="btn" onclick="startLevel('level2')">Уровень 2: Conditionals</button>
+        <button class="btn" onclick="startLevel('level3')">Уровень 3: Косвенная речь</button>
+    </div>
+
+    <div id="game-area">
+        <h3 id="question-text"></h3>
+        <div id="options-container"></div>
+        <button class="btn" onclick="backToMenu()" style="margin-top:20px;">Назад в меню</button>
+    </div>
+
+    <script>
+        const data = {
+            level1: [
+                { q: "The skyscraper ___ by a famous architect last year.", a: ["designs", "was designed", "designed"], correct: 1 },
+                { q: "I ___ the report yet.", a: ["don't finish", "haven't finished", "didn't finish"], correct: 1 }
+            ],
+            level2: [
+                { q: "If it rains, the work ___.", a: ["stops", "will stop", "stopped"], correct: 1 },
+                { q: "If I ___ his number, I would call him.", a: ["know", "knew", "will know"], correct: 1 }
+            ],
+            level3: [
+                { q: "He said: 'I am working now.' → He said he was working ___.", a: ["now", "then", "at that moment"], correct: 1 },
+                { q: "She said: 'I will finish it tomorrow.' → She said she would finish it ___.", a: ["tomorrow", "the next day", "the day before"], correct: 1 }
+            ]
+        };
+
+        let currentQuestions = [];
+        let currentIndex = 0;
+
+        function startLevel(lvl) {
+            currentQuestions = data[lvl];
+            currentIndex = 0;
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('game-area').style.display = 'block';
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = currentQuestions[currentIndex];
+            document.getElementById('question-text').innerText = (currentIndex + 1) + ". " + q.q;
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            
+            q.a.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'btn';
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    const allBtns = container.querySelectorAll('.btn');
+                    allBtns.forEach(b => b.disabled = true);
+                    if (idx === q.correct) {
+                        btn.classList.add('correct');
+                    } else {
+                        btn.classList.add('wrong');
+                        allBtns[q.correct].classList.add('correct');
+                    }
+                    setTimeout(() => {
+                        currentIndex++;
+                        if (currentIndex < currentQuestions.length) showQuestion();
+                        else alert("Уровень завершен!");
+                    }, 1000);
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function backToMenu() {
+            document.getElementById('game-area').style.display = 'none';
+            document.getElementById('menu').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
