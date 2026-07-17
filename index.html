@@ -43,7 +43,7 @@
         • Want / Decide / Manage + <b>to</b> (I want <b>to read</b>).</p>
     </div>
 </details>
-    <div id="text-area" style="display:none; padding:20px; background:#fff; border:1px solid #ccc; border-radius:10px; margin-top:20px;">
+ <div id="text-area" style="display:none; padding:20px; background:#fff; border:1px solid #ccc; border-radius:10px; margin-top:20px;">
     <h2 id="text-title"></h2>
     <div id="text-content" style="white-space: pre-line; margin-bottom: 20px; font-size: 16px;"></div>
     <div id="text-questions"></div>
@@ -228,8 +228,9 @@
     { q: "I am tired ___ waiting.", a: ["of", "in", "from"], correct: 0 },
     { q: "The news ___ very good.", a: ["is", "are", "were"], correct: 0 },
     { q: "Neither he nor I ___ ready.", a: ["am", "is", "are"], correct: 0 }
-],
-            text1: {
+        ]
+        const texts = {
+    text1: {
         title: "Halloween",
         content: `Halloween (also referred to as All Hollows' Eve) is a holiday that's celebrated in America on 31 October of each year, regardless of what day of the week this date falls on. Although it is rooted in religion, Halloween today is enjoyed mainly because of its decorations, costumes, candy, treats, and general excitement, and furthermore, it is enjoyed by most everyone.
 Before Halloween, many individuals carve a design into an orange-colored pumpkin, or a solid, durable vegetable. Once a personally satisfying design is carved, a lit candle is typically put inside a pumpkin, thereby making it a Jack-O-Lantern. At night, this design lights up against the darkness.
@@ -245,7 +246,8 @@ Only some adults celebrate Halloween, and they generally do so by attending part
             { q: "Some adults celebrate Halloween in which of the following ways?", a: ["Trick-or-treating", "Going to bed early", "Attending Halloween parties", "Buying Christmas gifts"], correct: 2 },
             { q: "When does Halloween take place?", a: ["14 February", "25 December", "31 October", "Eight weeks before Christmas"], correct: 2 }
         ]
-        };
+    }
+};
 
         let currentQuestions = [];
         let currentIndex = 0;
@@ -291,7 +293,7 @@ Only some adults celebrate Halloween, and they generally do so by attending part
             document.getElementById('game-area').style.display = 'none';
             document.getElementById('menu').style.display = 'block';
         }
-        function startText(textKey) {
+function startText(textKey) {
     const t = texts[textKey];
     document.getElementById('menu').style.display = 'none'; // Скрываем меню
     document.getElementById('text-area').style.display = 'block'; // Показываем текст
