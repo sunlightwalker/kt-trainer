@@ -55,6 +55,7 @@
         <button class="btn" onclick="startLevel('level5')">Уровень 5: Mixed Traps</button>
         <button class="btn" onclick="startText('text1')" style="background-color: #e7f3ff;">Текст 1: Halloween</button>
         <button class="btn" onclick="startText('text2')">Текст 2: Where is Roxy?</button>
+        <button class="btn" onclick="startLevel('kt1')">KT Variant 1</button>
     </div>
 
     <div id="game-area" style="display:none;">
@@ -277,7 +278,36 @@ Mum went away. Chloe called for Roxy. She started to search the house but she di
         ]
     }
 };
+        const kt_variant1 = [
+    { q: "17. I don’t like this drink! Can I have another cup of ________?", a: ["coffee", "coffees", "coffees", "coffes"], correct: 0, hint: "Coffee is an uncountable noun." },
+    { q: "18. I want to be a musician but I can’t play ________.", a: ["piano", "a piano", "the piano", "an piano"], correct: 2, hint: "We use 'the' with musical instruments after 'play'." },
+    { q: "19. Tomorrow will be ________ than today.", a: ["hotter", "hoter", "the hottest", "more hot"], correct: 0, hint: "Comparative degree: hot -> hotter." },
+    { q: "20. ________ of the people I know likes chocolate at all.", a: ["No one", "None", "Nobody", "No"], correct: 1, hint: "'None of' is the correct structure for a group." },
+    { q: "21. Spell it correctly: 152", a: ["one hundred and fifty two", "one hundred fifty and two", "one hundreds fifty two", "one hundred and fivety two"], correct: 0, hint: "152 is written as 'one hundred and fifty-two'." },
+    { q: "22. Please, speak ________.", a: ["quiety", "quietly", "quitly", "quiet"], correct: 1, hint: "We need an adverb (quietly) to describe the action." },
+    { q: "23. I’m going to Moscow ________ the end of March.", a: ["in", "on", "at", "for"], correct: 2, hint: "It's a fixed expression: 'at the end of'." },
+    { q: "24. He ________ at the moment.", a: ["will sleep", "is sleeping", "sleep", "sleeps"], correct: 1, hint: "'At the moment' requires Present Continuous." },
+    { q: "25. This room ________ every day.", a: ["is cleaned", "are cleaned", "will clean", "clean"], correct: 0, hint: "Passive voice: 'is cleaned' (is + V3)." },
+    { q: "26. This time next month I’ll be on holiday. I ________ on the beach.", a: ["have been lying", "am lying", "will be lying", "would be lying"], correct: 2, hint: "Future Continuous for an action in progress at a specific future time." },
+    { q: "27. ________ a horse?", a: ["Do you ever ride", "Did you ever ridden", "Did you ever ride", "Have you ever ridden"], correct: 3, hint: "Asking about life experience: 'Have you ever...?'" },
+    { q: "28. I ________ 50 pages yesterday.", a: ["were read", "read", "was read", "reads"], correct: 1, hint: "Past Simple of 'read' is spelled 'read' but pronounced /red/." },
+    { q: "29. I ________ speak three foreign languages.", a: ["am", "must to", "can", "was"], correct: 2, hint: "Modals like 'can' don't need 'to'." },
+    { q: "30. Hi, Mary! Have you decided where ________ for your holiday?", a: ["going", "go", "to go", "to going"], correct: 2, hint: "Use the infinitive after 'where'." },
+    { q: "31. I have ________ a beautiful butterfly this week.", a: ["catched", "catch", "cought", "caught"], correct: 3, hint: "The 3rd form of the verb 'catch' is 'caught'." },
+    { q: "32. Could you ________ me coffee?", a: ["will make", "makes", "make", "made"], correct: 2, hint: "After modal verbs we use the base form of the verb." },
+    { q: "33. I ________ a new novel about romantic boy now.", a: ["write", "am writing", "have been written", "writes"], correct: 1, hint: "'Now' indicates Present Continuous." },
+    { q: "34. We ________ the goods by that time.", a: ["will shipped", "has shipped", "had shipped", "were shipped"], correct: 2, hint: "'By that time' usually triggers Perfect tenses." }
+]
+    }
+};
 
+        function startLevel(level) {
+    if (level === 'kt1') {
+        currentQuestions = kt_variant1;
+        currentIndex = 0;
+        showQuestion();
+    }
+            
 let currentQuestions = [];
 let currentIndex = 0;
 
