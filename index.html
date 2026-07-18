@@ -237,7 +237,9 @@
     { q: "I am tired ___ waiting.", a: ["of", "in", "from"], correct: 0, hint: "Tired of — устать от чего-то." },
     { q: "The news ___ very good.", a: ["is", "are", "were"], correct: 0, hint: "News — всегда единственное число (даже если есть 's')." },
     { q: "Neither he nor I ___ ready.", a: ["am", "is", "are"], correct: 0, hint: "При использовании neither...nor глагол согласуется с последним подлежащим (I am)." }
-],
+]
+};
+    const ktVariants = {
             kt_variant1: [
         { q: "I don’t like this drink! Can I have another cup of ________?", a: ["coffee", "coffees", "coffees", "coffes"], correct: 0, hint: "Coffee is an uncountable noun." },
         { q: "I want to be a musician but I can’t play ________.", a: ["piano", "a piano", "the piano", "an piano"], correct: 2, hint: "We use 'the' with musical instruments after 'play'." },
@@ -407,6 +409,7 @@ function backToMenu() {
     document.getElementById('game-area').style.display = 'none';
     document.getElementById('text-area').style.display = 'none'; // Обязательно скрываем и этот блок
     document.getElementById('menu').style.display = 'block';     // Показываем меню
+currentIndex = 0;
 }
 </script>
 </body>
