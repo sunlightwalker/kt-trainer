@@ -320,90 +320,77 @@ let currentQuestions = [];
     let currentIndex = 0;
 
 function startLevel(lvl) {
-    console.log("Попытка запуска уровня:", lvl); // Эта строка покажет в консоли, доходит ли дело до функции
     currentQuestions = data[lvl];
     if (!currentQuestions) {
-        alert("Ошибка: Уровень " + lvl + " не найден в базе данных!");
+        alert("Ошибка: Уровень " + lvl + " не найден!");
         return;
     }
-
-    function showQuestion() {
-        const q = currentQuestions[currentIndex];
-        document.getElementById('question-text').innerText = (currentIndex + 1) + ". " + q.q;
-        
-        const container = document.getElementById('options-container');
-        container.innerHTML = '';
-        
-        q.a.forEach((opt, idx) => {
-            const btn = document.createElement('button');
-            btn.className = 'btn';
-            btn.innerText = opt;
-            btn.onclick = () => {
-                const allBtns = container.querySelectorAll('.btn');
-                allBtns.forEach(b => b.disabled = true);
-
-                if (allBtns[q.correct]) {
-    allBtns[q.correct].classList.add('correct');
+    currentIndex = 0;
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('text-area').style.display = 'none';
+    document.getElementById('game-area').style.display = 'block';
+    showQuestion();
 }
-                
-                if (idx === q.correct) {
-                    btn.classList.add('correct');
-                } else {
-                    btn.classList.add('wrong');
-                    allBtns[q.correct].classList.add('correct');
-                    if(q.hint) alert("Правило: " + q.hint);
-                }
-                
-                setTimeout(() => {
-                    currentIndex++;
-                    if (currentIndex < currentQuestions.length) showQuestion();
-                    else {
-                        alert("Уровень завершен!");
-                        backToMenu();
-                    }
-                }, 2000);
-            };
-            container.appendChild(btn);
+
+function showQuestion() {
+    const q = currentQuestions[currentIndex];
+    document.getElementById('question-text').innerText = (currentIndex + 1) + ". " + q.q;
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    q.a.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.innerText = opt;
+        btn.onclick = () => {
+            const allBtns = container.querySelectorAll('.btn');
+            allBtns.forEach(b => b.disabled = true);
+            if (idx === q.correct) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                allBtns[q.correct].classList.add('correct');
+            }
+            setTimeout(() => {
+                currentIndex++;
+                if (currentIndex < currentQuestions.length) showQuestion();
+                else { alert("Уровень завершен!"); backToMenu(); }
+            }, 2000);
+        };
+        container.appendChild(btn);
+    });
+}
+
+function startText(textKey) {
+    const t = texts[textKey];
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('game-area').style.display = 'none';
+    document.getElementById('text-area').style.display = 'block';
+    document.getElementById('text-title').innerText = t.title;
+    document.getElementById('text-content').innerText = t.content;
+    const qContainer = document.getElementById('text-questions');
+    qContainer.innerHTML = ''; 
+    t.questions.forEach((item, index) => {
+        let div = document.createElement('div');
+        div.innerHTML = `<p><b>${index + 1}. ${item.q}</b></p>`;
+        item.a.forEach((ans, i) => {
+            div.innerHTML += `<button class="btn" onclick="checkTextAnswer(${index}, ${i}, '${textKey}', this)">${ans}</button>`;
         });
-    }
+        qContainer.appendChild(div);
+    });
+}
 
-    function showCurrentHint() {
-        const q = currentQuestions[currentIndex];
-        alert(q && q.hint ? "Правило: " + q.hint : "К этому вопросу пока нет подсказки.");
-    }
-
-    function startText(textKey) {
-        const t = texts[textKey];
-        document.getElementById('menu').style.display = 'none';
-        document.getElementById('game-area').style.display = 'none';
-        document.getElementById('text-area').style.display = 'block';
-        document.getElementById('text-title').innerText = t.title;
-        document.getElementById('text-content').innerText = t.content;
-        
-        const qContainer = document.getElementById('text-questions');
-        qContainer.innerHTML = ''; 
-        t.questions.forEach((item, index) => {
-            let div = document.createElement('div');
-            div.innerHTML = `<p><b>${index + 1}. ${item.q}</b></p>`;
-            item.a.forEach((ans, i) => {
-                div.innerHTML += `<button class="btn" onclick="checkTextAnswer(${index}, ${i}, '${textKey}', this)">${ans}</button>`;
-            });
-            qContainer.appendChild(div);
-        });
-    }
-
-    function checkTextAnswer(qIndex, aIndex, textKey, btn) {
-        const correct = texts[textKey].questions[qIndex].correct;
-        const buttons = btn.parentElement.querySelectorAll('button');
-        buttons.forEach(b => b.disabled = true);
-        btn.style.backgroundColor = (aIndex === correct) ? "#d4edda" : "#f8d7da";
-    }
+function checkTextAnswer(qIndex, aIndex, textKey, btn) {
+    const correct = texts[textKey].questions[qIndex].correct;
+    const buttons = btn.parentElement.querySelectorAll('button');
+    buttons.forEach(b => b.disabled = true);
+    btn.style.backgroundColor = (aIndex === correct) ? "#d4edda" : "#f8d7da";
+}
 
 function backToMenu() {
     document.getElementById('game-area').style.display = 'none';
-    document.getElementById('text-area').style.display = 'none'; // Обязательно скрываем и этот блок
-    document.getElementById('menu').style.display = 'block';     // Показываем меню
-currentIndex = 0;
+    document.getElementById('text-area').style.display = 'none';
+    document.getElementById('menu').style.display = 'block';
+    currentIndex = 0;
 }
 </script>
 </body>
