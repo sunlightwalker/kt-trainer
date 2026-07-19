@@ -23,10 +23,11 @@
     </div>
 
     <div id="game-area">
-        <h3 id="question-text"></h3>
-        <div id="options-container"></div>
-        <button class="btn" onclick="backToMenu()" style="margin-top:20px;">Назад в меню</button>
-    </div>
+    <h3 id="question-text"></h3>
+    <div id="options-container"></div>
+    <button class="btn" style="background-color: #fff3cd;" onclick="showCurrentHint()">💡 Показать подсказку</button>
+    <button class="btn" onclick="backToMenu()" style="margin-top:20px;">Назад в меню</button>
+</div>
     
     <script>
         const grammarLevels = {
@@ -241,6 +242,16 @@ function startLevel(lvl) {
             document.getElementById('menu').style.display = 'block';
             currentIndex = 0;
         }
+        
+        function showCurrentHint() {
+    const q = currentQuestions[currentIndex];
+    // Проверяем, есть ли у текущего вопроса поле hint
+    if (q && q.hint) {
+        alert("💡 Подсказка: " + q.hint);
+    } else {
+        alert("К этому вопросу подсказка не предусмотрена.");
+    }
+}
     </script>
 </body>
 </html>
