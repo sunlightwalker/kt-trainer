@@ -319,14 +319,12 @@ Mum went away. Chloe called for Roxy. She started to search the house but she di
 let currentQuestions = [];
     let currentIndex = 0;
 
-    function startLevel(lvl) {
-        // Убрали проверку !data[lvl], так как теперь мы явно передаем ключ
-        currentQuestions = data[lvl];
-        currentIndex = 0;
-        document.getElementById('menu').style.display = 'none';
-        document.getElementById('text-area').style.display = 'none';
-        document.getElementById('game-area').style.display = 'block';
-        showQuestion();
+function startLevel(lvl) {
+    console.log("Попытка запуска уровня:", lvl); // Эта строка покажет в консоли, доходит ли дело до функции
+    currentQuestions = data[lvl];
+    if (!currentQuestions) {
+        alert("Ошибка: Уровень " + lvl + " не найден в базе данных!");
+        return;
     }
 
     function showQuestion() {
