@@ -8,19 +8,10 @@
         .btn { display: block; width: 100%; margin: 10px 0; padding: 12px; cursor: pointer; border: 1px solid #ddd; border-radius: 8px; background: #fff; }
         .correct { background-color: #d4edda !important; border-color: #28a745 !important; }
         .wrong { background-color: #f8d7da !important; border-color: #dc3545 !important; }
-        #game-area, #text-area { display: none; }
+        #game-area { display: none; }
     </style>
 </head>
 <body>
-
-    <details style="margin: 20px 0; padding: 15px; border: 2px solid #007bff; border-radius: 10px; background: #f8f9fa;">
-        <summary style="font-weight: bold; cursor: pointer; color: #007bff;">📖 Полный справочник правил</summary>
-        <div style="margin-top: 10px; line-height: 1.5; font-size: 14px;">
-            <p><b>Passive Voice:</b> to be + V3</p>
-            <p><b>Conditionals:</b> Type 1 (Real), Type 2 (Dream)</p>
-            <p><b>Reported Speech:</b> шаг назад в прошлое</p>
-        </div>
-    </details>
 
     <div id="menu">
         <h1>Выберите уровень:</h1>
@@ -29,26 +20,14 @@
         <button class="btn" onclick="startLevel('level3')">Уровень 3: Косвенная речь</button>
         <button class="btn" onclick="startLevel('level4')">Уровень 4: Modal Verbs</button>
         <button class="btn" onclick="startLevel('level5')">Уровень 5: Mixed Traps</button>
-        <button class="btn" onclick="startLevel('kt_variant1')">КТ Вариант 1</button>
-        <button class="btn" onclick="startLevel('kt_variant2')">КТ Вариант 2</button>
-        <button class="btn" onclick="startText('text1')" style="background-color: #e7f3ff;">Текст 1: Halloween</button>
-        <button class="btn" onclick="startText('text2')">Текст 2: Where is Roxy?</button>
     </div>
 
     <div id="game-area">
         <h3 id="question-text"></h3>
         <div id="options-container"></div>
-        <button class="btn" onclick="backToMenu()">Назад в меню</button>
-        <button class="btn" style="background-color: #fff3cd;" onclick="showCurrentHint()">💡 Подсказка</button>
+        <button class="btn" onclick="backToMenu()" style="margin-top:20px;">Назад в меню</button>
     </div>
-
-    <div id="text-area">
-        <h2 id="text-title"></h2>
-        <div id="text-content" style="white-space: pre-wrap; margin-bottom: 20px;"></div>
-        <div id="text-questions"></div>
-        <button class="btn" onclick="backToMenu()">Назад в меню</button>
-    </div>
-
+    
     <script>
         const grammarLevels = {
             level1: [
@@ -212,93 +191,16 @@
     { q: "Neither he nor I ___ ready.", a: ["am", "is", "are"], correct: 0, hint: "При использовании neither...nor глагол согласуется с последним подлежащим (I am)." }
 ]
 };
-    const ktVariants = {
-            kt_variant1: [
-        { q: "I don’t like this drink! Can I have another cup of ________?", a: ["coffee", "coffees", "coffees", "coffes"], correct: 0, hint: "Coffee is an uncountable noun." },
-        { q: "I want to be a musician but I can’t play ________.", a: ["piano", "a piano", "the piano", "an piano"], correct: 2, hint: "We use 'the' with musical instruments after 'play'." },
-        { q: "Tomorrow will be ________ than today.", a: ["hotter", "hoter", "the hottest", "more hot"], correct: 0, hint: "Comparative degree: hot -> hotter." },
-        { q: "________ of the people I know likes chocolate at all.", a: ["No one", "None", "Nobody", "No"], correct: 1, hint: "'None of' is the correct structure for a group." },
-        { q: "Spell it correctly: 152", a: ["one hundred and fifty two", "one hundred fifty and two", "one hundreds fifty two", "one hundred and fivety two"], correct: 0, hint: "152 is written as 'one hundred and fifty-two'." },
-        { q: "Please, speak ________.", a: ["quiety", "quietly", "quitly", "quiet"], correct: 1, hint: "We need an adverb (quietly) to describe the action." },
-        { q: "I’m going to Moscow ________ the end of March.", a: ["in", "on", "at", "for"], correct: 2, hint: "It's a fixed expression: 'at the end of'." },
-        { q: "He ________ at the moment.", a: ["will sleep", "is sleeping", "sleep", "sleeps"], correct: 1, hint: "'At the moment' requires Present Continuous." },
-        { q: "This room ________ every day.", a: ["is cleaned", "are cleaned", "will clean", "clean"], correct: 0, hint: "Passive voice: 'is cleaned' (is + V3)." },
-        { q: "This time next month I’ll be on holiday. I ________ on the beach.", a: ["have been lying", "am lying", "will be lying", "would be lying"], correct: 2, hint: "Future Continuous for an action in progress." },
-        { q: "________ a horse?", a: ["Do you ever ride", "Did you ever ridden", "Did you ever ride", "Have you ever ridden"], correct: 3, hint: "Experience question: 'Have you ever...?'" },
-        { q: "I ________ 50 pages yesterday.", a: ["were read", "read", "was read", "reads"], correct: 1, hint: "Past Simple of 'read' is 'read' (pronounced /red/)." },
-        { q: "I ________ speak three foreign languages.", a: ["am", "must to", "can", "was"], correct: 2, hint: "Modals like 'can' don't need 'to'." },
-        { q: "Hi, Mary! Have you decided where ________ for your holiday?", a: ["going", "go", "to go", "to going"], correct: 2, hint: "Use the infinitive after 'where'." },
-        { q: "I have ________ a beautiful butterfly this week.", a: ["catched", "catch", "cought", "caught"], correct: 3, hint: "The 3rd form of the verb 'catch' is 'caught'." },
-        { q: "Could you ________ me coffee?", a: ["will make", "makes", "make", "made"], correct: 2, hint: "After modal verbs use the base form." },
-        { q: "I ________ a new novel about romantic boy now.", a: ["write", "am writing", "have been written", "writes"], correct: 1, hint: "'Now' indicates Present Continuous." },
-        { q: "We ________ the goods by that time.", a: ["will shipped", "has shipped", "had shipped", "were shipped"], correct: 2, hint: "'By that time' usually triggers Perfect tenses." }
-    ],
-            kt_variant2: [
-    { q: "Is this _____ book?", a: ["ours", "yours", "your", "hers"], correct: 2, hint: "Перед существительным 'book' нужно притяжательное прилагательное (your), а не местоимение (yours/ours)." },
-    { q: "I first visited Germany _____ 2012", a: ["out", "in", "on", "at"], correct: 1, hint: "С годами всегда используем предлог 'in'." },
-    { q: "I work at university now, but before I _____ in laboratory as a specialist of science.", a: ["has worked", "worked", "am working", "have been worked"], correct: 1, hint: "Указание на прошлое (before) требует Past Simple." },
-    { q: "My friends _____ all summer", a: ["have travelling", "were travel", "are travel", "have been travelling"], correct: 3, hint: "Для длительного процесса, который начался в прошлом и продолжается или только закончился, используем Present Perfect Continuous." },
-    { q: "Yesterday I got a letter. _____ letter was from my friend", a: ["The", "A", "An", "—"], correct: 0, hint: "Мы используем 'the', так как предмет уже упоминался ранее (определенный предмет)." },
-    { q: "It’s been a month since I quitted my last job. I had much _____ to do and lots of responsibilities.", a: ["a work", "work", "some work", "the works"], correct: 1, hint: "'Work' в значении 'работа, труд' — неисчисляемое существительное, артикль 'a' не нужен." },
-    { q: "He is the longest _____ worker in that factory.", a: ["serves", "to be served", "served", "serving"], correct: 3, hint: "Здесь нужно причастие настоящего времени (serving), образующее определение 'работающий дольше всех'." },
-    { q: "Which mood is used in the following sentence: “Say it!”", a: ["subjunctive", "indicative", "imperative", "interrogative"], correct: 2, hint: "Повелительное наклонение (Imperative) используется для просьб или приказов." },
-    { q: "Define the mood of the sentence: Mozart was born in Salzburg in 1756.", a: ["Interrogative", "Subjunctive", "Imperative", "Indicative"], correct: 3, hint: "Изъявительное наклонение (Indicative) описывает реальные факты." },
-    { q: "I’m worried about Sally. She _____ eats anything. I think I should talk to her.", a: ["completely", "hardly", "quietly", "easily"], correct: 1, hint: "Наречие 'hardly' означает 'едва, почти не', что подходит по смыслу." },
-    { q: "One of the sentences is in the subjunctive mood:", a: ["If only I could rely on people around me.", "Do you mind closing the door?", "Stop causing problems, please.", "How many children has Angela got?"], correct: 0, hint: "Конструкция 'If only' выражает пожелание (сослагательное наклонение)." },
-    { q: "They say electricity prices are going up _____ November. Have you heard about it?", a: ["on", "to", "of", "in"], correct: 3, hint: "С месяцами используем предлог 'in'." },
-    { q: "We bought five kilos of apples, then we bought two kilos more, how many kilos of apples do we have now?", a: ["eight", "three", "seven", "six"], correct: 2, hint: "5 + 2 = 7." },
-    { q: "They married _____ 2023 _____ 17th of June.", a: ["on/on", "in/in", "on/in", "in/on"], correct: 3, hint: "Год — предлог 'in', дата — предлог 'on'." },
-    { q: "How is your head? Is it better? No, it’s _____.", a: ["worse", "badder", "bader", "worst"], correct: 0, hint: "Сравнительная степень от 'bad' — 'worse'." },
-    { q: "At 7 o’clock tomorrow morning, Mary will be in her office. She _____.", a: ["is working", "would be working", "will be working", "works"], correct: 2, hint: "Future Continuous ('will be working') для действия в процессе в конкретный момент в будущем." },
-    { q: "Look at the sky. It’s gone really dark. It _____ rain.", a: ["is going to", "will be", "will", "going"], correct: 0, hint: "Когда есть явные признаки (темное небо), мы используем 'is going to'." },
-    { q: "Find the sentence with the correct position of adverb:", a: ["You always have been very kind to me.", "I cleaned the house and cooked also dinner.", "He can never remember his name.", "The traffic usually isn’t as bad as today."], correct: 2, hint: "Наречие 'never' ставится перед смысловым глаголом ('remember')." }
-]
-};
-        const texts = {
-    text1: {
-        title: "Halloween",
-        content: `Halloween (also referred to as All Hollows' Eve) is a holiday that's celebrated in America on 31 October of each year, regardless of what day of the week this date falls on. Although it is rooted in religion, Halloween today is enjoyed mainly because of its decorations, costumes, candy, treats, and general excitement, and furthermore, it is enjoyed by most everyone.
-Before Halloween, many individuals carve a design into an orange-colored pumpkin, or a solid, durable vegetable. Once a personally satisfying design is carved, a lit candle is typically put inside a pumpkin, thereby making it a Jack-O-Lantern. At night, this design lights up against the darkness.
-Besides carving pumpkins, some celebrate Halloween by putting decorations up. Supernatural figures, including vampires, ghosts, werewolves, zombies, and more, generally account for most of these decorations. Bugs, spiders, cobwebs, gravestones, and anything else that can be considered creepy can also be found on Halloween, in decoration form.
-Only some adults celebrate Halloween, and they generally do so by attending parties. Inversely, the vast majority of children dress in costume and walk from door to door in search of candy - a practice known as trick or treat - on Halloween. After knocking on a door (houses that participate in Halloween usually leave a light on), one says, "Trick or Treat" and a piece (or pieces!) of candy is given to him or her.`,
-        questions: [
-            { q: "One can expect to see all of the following types of decorations on Halloween except:", a: ["Spiders and other bugs", "Snowflakes and ribbons", "Gravestones and zombies", "Vampires"], correct: 1 },
-            { q: "Before Halloween, many individuals carve a design into an orange-colored ____, or a solid, durable vegetable.", a: ["apple", "cabbage", "tomato", "pumpkin"], correct: 3 },
-            { q: "Before Halloween, many individuals carve a design into an ____- colored pumpkin, or a solid, durable vegetable.", a: ["red", "black", "orange", "blue"], correct: 2 },
-            { q: "Some adults celebrate Halloween in which of the following ways?", a: ["Trick-or-treating", "Going to bed early", "Attending Halloween parties", "Buying Christmas gifts"], correct: 2 },
-            { q: "Halloween (also referred to as All Hollows' Eve) is a holiday that's celebrated in America on ____of each year", a: ["31 September", "11 October", "31 October", "21 September"], correct: 2 },
-            { q: "What day of the week does Halloween fall on?", a: ["Always Saturday", "Always Friday", "Always Monday", "Varies by year"], correct: 3 },
-            { q: "Some adults celebrate Halloween in which of the following ways?", a: ["Trick-or-treating", "Going to bed early", "Attending Halloween parties", "Buying Christmas gifts"], correct: 2 },
-            { q: "When does Halloween take place?", a: ["14 February", "25 December", "31 October", "Eight weeks before Christmas"], correct: 2 }
-        ]
-},
-            text2: {
-        title: "Where is Roxy?",
-        content: `After classes Chloe arrives home, makes a cup of coffee and goes to her bedroom. Everything is quiet and she plays with her pet rats. Chloe has two rats called Zena and Roxy. They live in a cage in Chloe's bedroom. Chloe knows that most people don't like rats. A year ago, Chloe didn't like rats either. Once, her friend Martin showed Chloe his rats and Chloe saw how intelligent and affectionate they were.
-When one of Martin's rats had babies, Chloe asked her mum if she could have two pet rats for her birthday present. Her parents didn't like it, but Chloe got an excellent school report and they decided to give Chloe that present.
-'There’s one very important rule,' said Chloe's mum. 'The rats live in your bedroom and never go to other rooms, especially the kitchen!'
-In her room, Chloe opened the cage. She picked up Roxy and put her on the floor. Then she picked up Zena and put her on her shoulder. Roxy loved to explore climbing furniture and going under Chloe's bed. Zena was quieter and liked sitting on Chloe's shoulder.
-Someone knocked on the door. 'Hi, Chloe,' called Mum. 'Mum, come in.' 'I'm going to my aerobics class. I'll return at seven. Dad's on his way home. He's making pasta tonight.' 'OK, Mum', Chloe replied.
-Mum went away. Chloe called for Roxy. She started to search the house but she didn’t find Roxy. When Dad came, they looked all over the house but couldn't find Roxy anywhere. Soon Mum came. She was smiling and Roxy was on her shoulder. When she arrived at the gym and opened her bag, she found Roxy sleeping in one of her shoes. She picked her up for the first time and understood that she liked rats too.`,
-        questions: [
-            { q: "Mum’s rule was ‘The rats ____.", a: ["live in their country house", "live in a small box in the garden", "can live in any room in their house", "never leave Chloe’s bedroom"], correct: 3 },
-            { q: "Chloe has got ____ pet rats.", a: ["two", "five", "three", "four"], correct: 0 },
-            { q: "Chloe is aware of the fact that most people _____ rats.", a: ["adore", "don’t like", "admire", "do like"], correct: 1 },
-            { q: "The true statement referring to the text is ____.", a: ["Chloe’s parents always wanted their daughter to have pet rats", "At first, Chloe’s parents didn’t like the idea about pet rats", "Chloe’s mum and dad always wanted their daughter to have pet parrots", "Chloe’s classmates gave Chloe pet rats for her birthday present"], correct: 1 },
-            { q: "The true statement referring to the text is: Chloe’s mum ____", a: ["went to the swimming pool", "went to the gym to do aerobics", "went to the market to buy some food", "decided to prepare pasta"], correct: 1 },
-            { q: "The girl’s name is ____.", a: ["Candy", "Clara", "Cora", "Chloe"], correct: 3 },
-            { q: "On returning from school, Chloe makes ____ and goes to her bedroom.", a: ["green tea", "black tea", "drinks cocoa", "a cup of coffee"], correct: 3 },
-            { q: "The true statement referring to the text is: Chloe", a: ["managed to find Roxy only with Zena’s help", "managed to find Roxy only with Martin’s help", "failed to find because she was in the kitchen", "failed to find Roxy because her pet rat was in the gym"], correct: 3 }
-]
-};        
-const data = { ...grammarLevels, ...ktVariants };
         
 let currentQuestions = [];
 let currentIndex = 0;
         
 function startLevel(lvl) {
-            currentQuestions = data[lvl];
-            if (!currentQuestions) return alert("Ошибка: уровень не найден");
+            currentQuestions = grammarLevels[lvl];
+            if (!currentQuestions) {
+                alert("Ошибка: уровень " + lvl + " не найден!");
+                return;
+            }
             currentIndex = 0;
             document.getElementById('menu').style.display = 'none';
             document.getElementById('game-area').style.display = 'block';
@@ -310,6 +212,7 @@ function startLevel(lvl) {
             document.getElementById('question-text').innerText = (currentIndex + 1) + ". " + q.q;
             const container = document.getElementById('options-container');
             container.innerHTML = '';
+            
             q.a.forEach((opt, idx) => {
                 const btn = document.createElement('button');
                 btn.className = 'btn';
@@ -317,8 +220,9 @@ function startLevel(lvl) {
                 btn.onclick = () => {
                     const allBtns = container.querySelectorAll('.btn');
                     allBtns.forEach(b => b.disabled = true);
-                    if (idx === q.correct) btn.classList.add('correct');
-                    else {
+                    if (idx === q.correct) {
+                        btn.classList.add('correct');
+                    } else {
                         btn.classList.add('wrong');
                         allBtns[q.correct].classList.add('correct');
                     }
@@ -332,39 +236,8 @@ function startLevel(lvl) {
             });
         }
 
-        function showCurrentHint() {
-            const q = currentQuestions[currentIndex];
-            alert(q && q.hint ? q.hint : "Подсказок нет.");
-        }
-
-        function startText(textKey) {
-            const t = texts[textKey];
-            document.getElementById('menu').style.display = 'none';
-            document.getElementById('text-area').style.display = 'block';
-            document.getElementById('text-title').innerText = t.title;
-            document.getElementById('text-content').innerText = t.content;
-            const qContainer = document.getElementById('text-questions');
-            qContainer.innerHTML = '';
-            t.questions.forEach((item, index) => {
-                let div = document.createElement('div');
-                div.innerHTML = `<p><b>${index + 1}. ${item.q}</b></p>`;
-                item.a.forEach((ans, i) => {
-                    div.innerHTML += `<button class="btn" onclick="checkTextAnswer(${index}, ${i}, '${textKey}', this)">${ans}</button>`;
-                });
-                qContainer.appendChild(div);
-            });
-        }
-
-        function checkTextAnswer(qIndex, aIndex, textKey, btn) {
-            const correct = texts[textKey].questions[qIndex].correct;
-            const buttons = btn.parentElement.querySelectorAll('button');
-            buttons.forEach(b => b.disabled = true);
-            btn.style.backgroundColor = (aIndex === correct) ? "#d4edda" : "#f8d7da";
-        }
-
         function backToMenu() {
             document.getElementById('game-area').style.display = 'none';
-            document.getElementById('text-area').style.display = 'none';
             document.getElementById('menu').style.display = 'block';
             currentIndex = 0;
         }
