@@ -317,10 +317,13 @@ Mum went away. Chloe called for Roxy. She started to search the house but she di
         
 const data = { grammarLevels, ktVariants };
         
+let currentQuestions = [];
+let currentIndex = 0;
+        
 function startLevel(lvl) {
     currentQuestions = data[lvl];
     if (!currentQuestions) {
-        alert("Ошибка: Уровень " + lvl + " не найден!");
+        alert("Ошибка: уровень '" + lvl + "' не найден.");
         return;
     }
     currentIndex = 0;
@@ -335,6 +338,7 @@ function showQuestion() {
     document.getElementById('question-text').innerText = (currentIndex + 1) + ". " + q.q;
     const container = document.getElementById('options-container');
     container.innerHTML = '';
+    
     q.a.forEach((opt, idx) => {
         const btn = document.createElement('button');
         btn.className = 'btn';
@@ -351,8 +355,8 @@ function showQuestion() {
             setTimeout(() => {
                 currentIndex++;
                 if (currentIndex < currentQuestions.length) showQuestion();
-                else { alert("Уровень завершен!"); backToMenu(); }
-            }, 2000);
+                else { alert("Уровень пройден!"); backToMenu(); }
+            }, 1500);
         };
         container.appendChild(btn);
     });
@@ -366,7 +370,7 @@ function startText(textKey) {
     document.getElementById('text-title').innerText = t.title;
     document.getElementById('text-content').innerText = t.content;
     const qContainer = document.getElementById('text-questions');
-    qContainer.innerHTML = ''; 
+    qContainer.innerHTML = '';
     t.questions.forEach((item, index) => {
         let div = document.createElement('div');
         div.innerHTML = `<p><b>${index + 1}. ${item.q}</b></p>`;
@@ -388,7 +392,6 @@ function backToMenu() {
     document.getElementById('game-area').style.display = 'none';
     document.getElementById('text-area').style.display = 'none';
     document.getElementById('menu').style.display = 'block';
-    currentIndex = 0;
 }
 </script>
 </body>
