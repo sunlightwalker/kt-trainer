@@ -343,6 +343,10 @@ let currentQuestions = [];
             btn.onclick = () => {
                 const allBtns = container.querySelectorAll('.btn');
                 allBtns.forEach(b => b.disabled = true);
+
+                if (allBtns[q.correct]) {
+    allBtns[q.correct].classList.add('correct');
+}
                 
                 if (idx === q.correct) {
                     btn.classList.add('correct');
