@@ -375,6 +375,21 @@ function startLevel(lvl) {
         document.getElementById('game-area').style.display = 'block';
         showQuestion();
     }
+
+    function openReadingModal() {
+        if (!activeTextKey || !texts[activeTextKey]) {
+            alert("Это обычный тест, здесь нет текста.");
+            return;
+        }
+        const textObj = texts[activeTextKey];
+        document.getElementById('modal-title').innerText = textObj.title;
+        document.getElementById('modal-content').innerText = textObj.content;
+        document.getElementById('reading-modal').style.display = 'flex';
+    }
+
+    function closeReadingModal() {
+        document.getElementById('reading-modal').style.display = 'none';
+    }
     </script>
 </body>
 </html>
