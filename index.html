@@ -23,6 +23,7 @@
     <h2>КТ Тесты:</h2>
     <button class="btn" onclick="startLevel('kt1')" style="background-color: #e8f5e9;">КТ Вариант 1</button>
     <button class="btn" onclick="startLevel('kt2')" style="background-color: #e8f5e9;">КТ Вариант 2</button>
+    <button class="btn" onclick="startLevel('kt3')" style="background-color: #e8f5e9;">КТ Вариант 3</button>
 </div>
 
     <div id="game-area">
@@ -233,7 +234,27 @@
             { q: "At 7 o’clock tomorrow morning, Mary will be in her office. She _____.", a: ["is working", "would be working", "will be working", "works"], correct: 2, hint: "Future Continuous ('will be working') для действия в процессе в конкретный момент в будущем." },
             { q: "Look at the sky. It’s gone really dark. It _____ rain.", a: ["is going to", "will be", "will", "going"], correct: 0, hint: "Когда есть явные признаки (темное небо), мы используем 'is going to'." },
             { q: "Find the sentence with the correct position of adverb:", a: ["You always have been very kind to me.", "I cleaned the house and cooked also dinner.", "He can never remember his name.", "The traffic usually isn’t as bad as today."], correct: 2, hint: "Наречие 'never' ставится перед смысловым глаголом ('remember')." }
-        ]
+        ],
+          kt3: [
+            { q: "Amir was very helpful. He gave us some very useful _.", a: ["the advice", "an advice", "advice", "advises"], correct: 2, hint: "Слово 'advice' — неисчисляемое существительное, не имеет множественного числа и артиклей в данном контексте." },
+            { q: "Dr. Smith has taken on the position of … Head of Department.", a: ["an", "few", "some", "zero article"], correct: 3, hint: "Перед уникальными официальными должностями и титулами в единственном числе обычно используется нулевой артикль." },
+            { q: "It’s _____ when you ask people for money.", a: ["embarrass", "embarrasses", "embarrassed", "embarrassing"], correct: 3, hint: "Для описания ситуации или события, которое вызывает чувство, используется причастие на -ing." },
+            { q: "I’ve been working very hard all day and now I’m _________.", a: ["exhausted", "exhausting", "exhaustened", "exhausty"], correct: 0, hint: "Для описания собственного состояния (усталости) используется причастие с окончанием -ed." },
+            { q: "I don’t think I can finish this project by …", a: ["me", "mine", "myself", "my"], correct: 2, hint: "В значении 'самостоятельно / сам по себе' используется возвратное местоимение by myself." },
+            { q: "10th", a: ["teenth", "tens", "tenth", "ten"], correct: 2, hint: "Порядковое числительное от ten — tenth." },
+            { q: "We _________ for an hour when it started to rain heavily.", a: ["had been playing", "have played", "was playing", "played"], correct: 0, hint: "Длительное действие, которое происходило до другого момента в прошлом, требует Past Perfect Continuous." },
+            { q: "I can’t stand ____________ here anymore! I don’t get along with my colleagues.", a: ["working", "to working", "to work", "work"], correct: 0, hint: "После выражения 'can't stand' глагол всегда идет с суффиксом -ing." },
+            { q: "The train ….. the station at 8 o’clock tomorrow morning.", a: ["are leaving", "leaves", "leave", "leaving"], correct: 1, hint: "Расписания и графики транспорта в будущем выражаются через Present Simple (leaves)." },
+            { q: "Look at her hand, she … in the garden all morning.", a: ["work", "works", "has been working", "have worked"], correct: 2, hint: "Действие началось в прошлом, продолжалось всё утро и виден результат — Present Perfect Continuous." },
+            { q: "Our company …. significantly over the past year.", a: ["grown", "has grown", "was grown", "grow"], correct: 1, hint: "Маркер 'over the past year' указывает на период времени до настоящего момента — нужен Present Perfect." },
+            { q: "Shall we meet at seven o’clock? No, I’ll still _ then.", a: ["was working", "be working", "have been working", "have worked"], correct: 1, hint: "Для действия, которое будет в процессе в определенный момент в будущем, используется Future Continuous." },
+            { q: "Alima looked tired because she ___all day.", a: ["had been worked", "has been working", "had working", "had been working"], correct: 3, hint: "Длительное действие в прошлом перед другим моментом в прошлом — Past Perfect Continuous." },
+            { q: "You … have let us know you’d changed your phone number.", a: ["will", "can", "may", "could"], correct: 3, hint: "Упрек или сожаление о том, что не было сделано в прошлом, выражается через 'could have done'." },
+            { q: "I’d like _____ on holiday with my boyfriend.", a: ["going", "to go", "go", "to going"], correct: 1, hint: "После конструкции 'would like' всегда используется инфинитив с частицей to." },
+            { q: "…. the start of the film, I decided to watch it again.", a: ["Have missing", "Missing", "Having missed", "Have missed"], correct: 2, hint: "Перфектное причастие (Having missed) показывает предшествование действия." },
+            { q: "I’ll give you a lift if it _.", a: ["will rain", "is raining", "raining", "rained"], correct: 1, hint: "В условных предложениях первого типа в придаточном времени используется Present (в данном случае Present Continuous для текущего момента)." },
+            { q: "It is high time … up to your responsibilities as a parent.", a: ["have faced", "be face", "faced", "to face"], correct: 3, hint: "Конструкция 'It is high time' может сопровождаться инфинитивом 'to face'." }
+        ]  
 };
         
 let currentQuestions = [];
