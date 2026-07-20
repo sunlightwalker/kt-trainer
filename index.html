@@ -27,6 +27,8 @@
         <h3>Тексты:</h3>
     <button class="btn" onclick="startText('text1')" style="background-color: #e3f2fd;">Текст: Sportswoman Daily Routine</button>
     <button class="btn" onclick="startText('text2')" style="background-color: #e3f2fd;">Текст: My neighborhood</button>
+    <button class="btn" onclick="startText('text3')" style="background-color: #e3f2fd;">Текст 3: Thanksgiving History</button>
+    <button class="btn" onclick="startText('text4')" style="background-color: #e3f2fd;">Текст 4: The United Kingdom</button>
 </div>
 
     <div id="game-area">
@@ -309,7 +311,79 @@ My friends live near me, and we often meet up to play or just talk. We love play
                 { q: "What is this text about?", a: ["This text is about suburb.", "This text is about movie.", "This text is about yard.", "This text is about garden."], correct: 0, hint: "Текст рассказывает о районе и пригороде ('suburb')." },
                 { q: "How is his road called?", a: ["Maple Road", "Knick-Knack", "Main street", "Road"], correct: 0, hint: "В тексте: 'My road is called Maple Road'." }
             ]
-        }
+        },
+            text3: {
+            title: "Thanksgiving: a Brief History",
+            content: `Thanksgiving is a special holiday for both Americans and Canadians. The United States celebrates it on every 4th Thursday in November. In Canada, it’s always celebrated on the 2nd Monday in October. Business centers and malls are closed, and children don’t go to school for 4 days. People travel across the country to be with their families and celebrate with a big dinner. The tradition of celebrating Thanksgiving was started by Native American Indians and the Pilgrims. The Pilgrims travelled from England to Holland, and then half-way around the world to America to escape persecution and find religious freedom. Many organizations in America prepare free Thanksgiving meals for those that are less fortunate and sends food to over 35,000 families for this holiday.
+Thanksgiving traditions vary depending on the region, but playing backyard football on Turkey Day with family and friends has been a tradition across the country since the 19th century. The annual White House tradition of pardoning the turkey is televised and watched by millions. The first official pardoning happened in 1989 when George Bush senior stopped a turkey from ending up on the table as the main course.`,
+            questions: [
+                { q: "On this holiday ____________________ are closed.", a: ["Business centers and hotels", "Business centers and pharmacy", "Business centers and hospitals", "Business centers and malls"], correct: 3, hint: "В тексте сказано: 'Business centers and malls are closed'." },
+                { q: "In 1989 George Bush senior stopped a turkey from ending up on the table as the main course was ____________________.", a: ["the first official exploration", "the first official pardoning", "the first official opening", "the first official streaming"], correct: 1, hint: "В тексте: 'The first official pardoning happened in 1989...'." },
+                { q: "Many organizations for this holiday send free food to over ____________________ families.", a: ["35,000", "55,000", "50,000", "30,000"], correct: 0, hint: "Ищите цифру в тексте: 'over 35,000 families'." },
+                { q: "Business centers and malls ____________________.", a: ["are closed", "are working for 24 hours", "are working till midnight", "are giving free presents"], correct: 0, hint: "В тексте указано, что они закрыты." },
+                { q: "In America the holiday is celebrated on ____________________.", a: ["every 4th Thursday in November", "every 4th Tuesday in November", "every 1st Thursday in November", "every 2h Thursday in November"], correct: 0, hint: "В тексте: 'on every 4th Thursday in November'." },
+                { q: "People travel across the country ____________________.", a: ["to be alone for a while", "for business trips", "to get married", "to be with their families"], correct: 3, hint: "В тексте: 'to be with their families and celebrate'." },
+                { q: "Thanksgiving traditions vary depending on the ____________________.", a: ["region", "family", "weather", "status"], correct: 0, hint: "В тексте: 'Thanksgiving traditions vary depending on the region...'." },
+                { q: "The name of the holiday is ____________________.", a: ["Easter", "Christmas", "Thanksgiving", "Thinkgiving"], correct: 2, hint: "Название праздника указано в заголовке и тексте." }
+            ]
+        },
+          text4: {
+            title: "The United Kingdom",
+            content: `The United Kingdom consists of England, Scotland, Wales, and Northern Ireland. London is the capital of England and the UK. It is on the river Thames with approximately 8,000,000, people. London has many famous monuments as the Tower of London, Big Ben, Buckingham Palace. It has museums and galleries as the British Museum, the National Gallery, and Tate Modern. The West End, with locations like Oxford Street, Leicester Square, Covent Garden, and Piccadilly Circus is London's entertainment and shopping district. London's tallest building is One Canada Square in Canary Wharf. The Houses of Parliament is the home of the Government of the UK.
+Edinburgh is the capital of Scotland and its second after Glasgow on the North Sea. Scottish Parliament is here. Its population is 450,000. In August, during the Edinburgh festival, its population doubles. The main attraction is Edinburgh Castle, at the top of an extinct volcano, and the Royal Mile - the street which leads down from the Castle. St Giles Cathedral, Princes Street for shopping and Forth Rail Bridge on the Firth of Forth for walking. Famous park is Princes Street Gardens.
+Belfast is the capital of Northern Ireland, near the River Lagan, with population 280,000. It is near Ireland. Many parts of the city center are being redeveloped. New developments include Victoria Square, the Cathedral Quarter and the regeneration of the Titanic Quarter (the Titanic was built here). Belfast has over forty public parks. The most popular is the Botanic Gardens.
+Cardiff is south coast, the capital city of Wales. The river Taff flows through this city with a population of approximately 321,000. Cardiff has beautiful places of interest, and is one of the top ten cities to visit according to the British Tourist Authority. The city's oldest monument is Cardiff Castle. Other places to visit are the Wales Millennium Centre, home to the Welsh National Opera, the Millennium Sports stadium, and the National Museum and Gallery. Cardiff's town center is green - its famous parks are Roath park, Cathays park and Bute park. Cardiff is one of the best places for shopping in the UK.`,
+            questions: [
+                { 
+                    q: "Sightseeing destination which is located at the peak of an extinct volcano is ____________________.", 
+                    a: ["Edinburgh Castle", "St Giles Cathedral", "Cardiff Castle"], 
+                    correct: 0, 
+                    hint: "💡 Подсказка: Ищите в тексте про Эдинбург (Edinburgh) ключевые слова 'extinct volcano' (потухший вулкан). В тексте прямо сказано: 'The main attraction is Edinburgh Castle, at the top of an extinct volcano'." 
+                },
+                { 
+                    q: "The capital city of the UK ____________________.", 
+                    a: ["Wales", "London", "Edinburgh", "Belfast"], 
+                    correct: 1, 
+                    hint: "💡 Подсказка: В начале абзаца про Лондон написано: 'London is the capital of England and the UK'." 
+                },
+                { 
+                    q: "____________________ is accredited as a famous tourist attraction.", 
+                    a: ["Linden", "Edinburgh", "Cardiff", "Belfast"], 
+                    correct: 1, 
+                    hint: "💡 Подсказка: Среди предложенных вариантов городом, который подробно описывается как туристический центр с замками и фестивалями в тексте, является Эдинбург (Edinburgh)." 
+                },
+                { 
+                    q: "____________________ capital city is not the biggest in their area.", 
+                    a: ["Belfast", "Edinburgh", "London", "Wales"], 
+                    correct: 1, 
+                    hint: "💡 Подсказка: Обратите внимание на предложение в тексте про Шотландию: 'Edinburgh is the capital of Scotland and its second after Glasgow...' (то есть оно второе по величине после Глазго, а не самое крупное)." 
+                },
+                { 
+                    q: "A legendary ship was created in ____________________.", 
+                    a: ["Edinburgh", "London", "Wales", "Belfast"], 
+                    correct: 3, 
+                    hint: "💡 Подсказка: Ищите слово 'Titanic' в тексте. В абзаце про Белфаст (Belfast) сказано: 'regeneration of the Titanic Quarter (the Titanic was built here)'." 
+                },
+                { 
+                    q: "Famous shopping centers are ____________________.", 
+                    a: ["Tower of London and Big Ben", "Millennium Centre and the Millennium Sports stadium", "Oxford Street and Leicester Square", "Victoria Square and the Titanic Quarter"], 
+                    correct: 2, 
+                    hint: "💡 Подсказка: В тексте про Лондон указано: 'The West End, with locations like Oxford Street... is London's entertainment and shopping district'." 
+                },
+                { 
+                    q: "Best places for shopping are ____________________.", 
+                    a: ["Edinburgh, Glasgow", "Cardiff, Belfast", "Belfast, London", "London, Cardiff"], 
+                    correct: 3, 
+                    hint: "💡 Подсказка: В тексте прямо указано, что Лондон и Кардифф известны своими зонами для шоппинга ('London's entertainment and shopping district' и 'Cardiff is one of the best places for shopping in the UK')." 
+                },
+                { 
+                    q: "The capital city with recently renewed center is ____________________.", 
+                    a: ["Cardiff", "Edinburgh", "London", "Belfast"], 
+                    correct: 3, 
+                    hint: "💡 Подсказка: Ищите слова о реставрации или обновлении центра ('redeveloped'). В абзаце про Белфаст написано: 'Many parts of the city center are being redeveloped'." 
+                }
+            ]
+        }  
     };
         
 let currentQuestions = [];
