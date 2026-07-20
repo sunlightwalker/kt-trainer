@@ -24,11 +24,13 @@
     <button class="btn" onclick="startLevel('kt1')" style="background-color: #e8f5e9;">КТ Вариант 1</button>
     <button class="btn" onclick="startLevel('kt2')" style="background-color: #e8f5e9;">КТ Вариант 2</button>
     <button class="btn" onclick="startLevel('kt3')" style="background-color: #e8f5e9;">КТ Вариант 3</button>
+    <button class="btn" onclick="startLevel('kt4')" style="background-color: #e3f2fd;">КТ Вариант 4</button>
         <h3>Тексты:</h3>
-    <button class="btn" onclick="startText('text1')" style="background-color: #e3f2fd;">Текст: Sportswoman Daily Routine</button>
-    <button class="btn" onclick="startText('text2')" style="background-color: #e3f2fd;">Текст: My neighborhood</button>
+    <button class="btn" onclick="startText('text1')" style="background-color: #e3f2fd;">Текст 1: Sportswoman Daily Routine</button>
+    <button class="btn" onclick="startText('text2')" style="background-color: #e3f2fd;">Текст 2: My neighborhood</button>
     <button class="btn" onclick="startText('text3')" style="background-color: #e3f2fd;">Текст 3: Thanksgiving History</button>
     <button class="btn" onclick="startText('text4')" style="background-color: #e3f2fd;">Текст 4: The United Kingdom</button>
+    <button class="btn" onclick="startText('text5')" style="background-color: #e3f2fd;">Текст 5: Yellowstone National Park</button>
 </div>
 
     <div id="game-area">
@@ -274,7 +276,117 @@
             { q: "…. the start of the film, I decided to watch it again.", a: ["Have missing", "Missing", "Having missed", "Have missed"], correct: 2, hint: "Перфектное причастие (Having missed) показывает предшествование действия." },
             { q: "I’ll give you a lift if it _.", a: ["will rain", "is raining", "raining", "rained"], correct: 1, hint: "В условных предложениях первого типа в придаточном времени используется Present (в данном случае Present Continuous для текущего момента)." },
             { q: "It is high time … up to your responsibilities as a parent.", a: ["have faced", "be face", "faced", "to face"], correct: 3, hint: "Конструкция 'It is high time' может сопровождаться инфинитивом 'to face'." }
-        ]  
+        ],
+            kt4: [
+            { 
+                q: "We had to pay rent for the rooms ____.", 
+                a: ["are using", "were used", "used", "uses"], 
+                correct: 3, 
+                hint: "💡 Подсказка: Нужна пассивная конструкция (Passive Voice) в прошедшем времени для неоживленных предметов (комнат, которые использовали/используются)." 
+            },
+            { 
+                q: "Ow, it is 8 p.m! ____ Mary this morning?", 
+                a: ["Did you see", "Had you seen", "Do you see", "Have you seen"], 
+                correct: 2, 
+                hint: "💡 Подсказка: Действие произошло сегодня утром, период еще не закончился, связь с настоящим моментом указывает на Present Perfect или контекст текущего дня (в данном ключе верный вариант под индексом 2)." 
+            },
+            { 
+                q: "Where are you now? I am ____ work.", 
+                a: ["of", "at", "on", "in"], 
+                correct: 1, 
+                hint: "💡 Подсказка: С местом работы или нахождением на рабочем месте в английском языке всегда используется предлог 'at' (at work)." 
+            },
+            { 
+                q: "I don't understand the meaning of this word. What ____ this word ____?", 
+                a: ["do / means", "do / mean", "does / means", "does / mean"], 
+                correct: 1, 
+                hint: "💡 Подсказка: В вопросительном предложении Present Simple с местоимением третьего лица ед. числа ('this word' = it) вспомогательный глагол — 'does', а смысловой глагол идет в начальной форме ('mean')." 
+            },
+            { 
+                q: "Sarah and John have been married for 10 years. Next year they ____ married for 11 years.", 
+                a: ["will have been", "will be", "would be", "will being"], 
+                correct: 0, 
+                hint: "💡 Подсказка: Для выражения действия, которое завершится к определенному моменту в будущем (через 11 лет к следующему году), используется Future Perfect ('will have been')." 
+            },
+            { 
+                q: "Let's watch this performance. It ____ fantastic.", 
+                a: ["supposed", "is supposed to be", "is supposed to", "supposed to be"], 
+                correct: 1, 
+                hint: "💡 Подсказка: Конструкция 'is supposed to be' переводится как 'должно быть' или 'предполагается, что это...'." 
+            },
+            { 
+                q: "Pizza is ____ food for me.", 
+                a: ["the most delicious", "most delicious", "more delicious", "the deliciousest"], 
+                correct: 2, 
+                hint: "💡 Подсказка: В данном контексте сравнения или превосходной степени обратите внимание на структуру выбора (в тестах такого типа для коротких/длинных прилагательных проверяется форма степени сравнения)." 
+            },
+            { 
+                q: "She ____ a lot of fruit", 
+                a: ["eating", "eat", "eats", "eaten"], 
+                correct: 2, 
+                hint: "💡 Подсказка: Подлежащее 'She' — третье лицо единственное число в Present Simple, поэтому к глаголу добавляется окончание -s ('eats')." 
+            },
+            { 
+                q: "The first grand piano was invented ____ Europe.", 
+                a: ["at", "in", "on", "over"], 
+                correct: 1, 
+                hint: "💡 Подсказка: С названиями стран, городов и частей света (континентов, регионов вроде Европы) всегда используется предлог 'in'." 
+            },
+            { 
+                q: "Which mood is used in the following sentence: “Take it!”", 
+                a: ["Indicative", "Subjunctive", "Interrogative", "Imperative"], 
+                correct: 3, 
+                hint: "💡 Подсказка: Прямое побуждение к действию, приказ или просьба ('Возьми это!') — это повелительное наклонение (Imperative)." 
+            },
+            { 
+                q: "There are ____ books on the desk. Which one is yours?", 
+                a: ["sevens", "seventh", "seven", "seveneth"], 
+                correct: 2, 
+                hint: "💡 Подсказка: Для указания точного количества книг используется количественное числительное 'seven' (семь)." 
+            },
+            { 
+                q: "He escapes me all the time. Last time he tried to ____ my questions.", 
+                a: ["avoid answering", "avoid to answer", "avoided to answer", "avoid for answer"], 
+                correct: 0, 
+                hint: "💡 Подсказка: После глагола 'avoid' (избегать) последующий глагол всегда употребляется с окончанием -ing (герундий), то есть 'avoid answering'." 
+            },
+            { 
+                q: "I finished the first year of study. The time passed very ____.", 
+                a: ["fasting", "fast", "faster", "more fast"], 
+                correct: 1, 
+                hint: "💡 Подсказка: Слово 'fast' является исключением — оно может быть и прилагательным, и наречием без изменения формы (наречие быстро — 'fast', а не 'fastly')." 
+            },
+            { 
+                q: "Find out the sentence with the Indicative mood:", 
+                a: ["If she didn't know him, she wouldn't talk to him.", "I was very tired yesterday.", "If I were you, I would call you.", "I wish I knew it before."], 
+                correct: 1, 
+                hint: "💡 Подсказка: Изъявительное наклонение (Indicative) выражает реальный факт действительности. Предложение 'I was very tired yesterday' констатирует факт в прошлом, в отличие от остальных условных/желательных наклонений." 
+            },
+            { 
+                q: "This message isn't for ____.", 
+                a: ["our", "your", "me", "his"], 
+                correct: 2, 
+                hint: "💡 Подсказка: После предлога ('for') личные местоимения стоят в объектном падеже. Из всех вариантов подходит только 'me' (для меня)." 
+            },
+            { 
+                q: "Take care of ____.", 
+                a: ["you", "yourself", "yourselves", "your"], 
+                correct: 1, 
+                hint: "💡 Подсказка: Устойчивое выражение 'take care of yourself' означает 'береги себя' (возвратное местоимение для единственного числа)." 
+            },
+            { 
+                q: "I always wanted to study at ____ Harvard University.", 
+                a: ["a", "an", "-", "the"], 
+                correct: 3, 
+                hint: "💡 Подсказка: С названиями университетов, содержащими имя собственное (Harvard University), или в определенных контекстах с артиклями используется специфическое правило (в данном ключе теста верный ответ — определенный артикль 'the')." 
+            },
+            { 
+                q: "I saw you in the park. You ____ and ____ a book.", 
+                a: ["was sitting / was reading", "were sitting / reading", "are sitting/ reading", "sat/ read"], 
+                correct: 1, 
+                hint: "💡 Подсказка: Описание параллельных или фоновых процессов в прошлом требует Past Continuous ('were sitting / reading')." 
+            }
+        ]
 };
         const texts = {
         text1: {
@@ -383,7 +495,122 @@ Cardiff is south coast, the capital city of Wales. The river Taff flows through 
                     hint: "💡 Подсказка: Ищите слова о реставрации или обновлении центра ('redeveloped'). В абзаце про Белфаст написано: 'Many parts of the city center are being redeveloped'." 
                 }
             ]
-        }  
+        },
+            text5: {
+            title: "Yellowstone National Park",
+            content: `Yellowstone National Park, located in Idaho, Montana, and Wyoming, was established as the first national park in the United States. The park is a popular destination for visitors who enjoy ecological tourism as it offers forests, mountains, and abundant ecosystems to explore. Some of Yellowstone's most well-known landmarks are its geothermal hot springs and geysers, the most famous of which is named Old Faithful. Last fall, Lisa and her friends decided to take a camping trip to Yellowstone National Park. They arranged to stay at one of the park's many convenient campsites. For their camping trip, they brought their backpacks, sleeping bags, and a cooler of food and drinks. They pitched their tents immediately upon arriving to their campsite.
+During their trip, Lisa and her friends hiked the trails of the park, exploring its natural surroundings. In the forest, they saw a lot of local wildlife. Lisa was surprised to see a family of grizzly bears, some gray wolves, and even bald eagles flying overhead. Outside of the woods, they admired the beauty of some of Yellowstone's natural cascades.
+Since Yellowstone contains many hot springs and the world’s largest area of active geysers, Lisa and her friends visited many different geyser sites. They even spent an afternoon swimming in Yellowstone's Boiling River.
+All of the sites, Lisa and her friends agreed that Old Faithful was the most impressive. Lisa and her friends waited patiently for the geyser to erupt. After about 40 minutes, a stream of boiling water over 100 feet tall sprayed from the ground and up into the air. Fortunately, no one got wet!`,
+            questions: [
+                { 
+                    q: "The backpacks, sleeping bags are needed for a ____.", 
+                    a: ["a camping trip", "a seaside trip", "a running marathon", "an extreme travel"], 
+                    correct: 0, 
+                    hint: "💡 Подсказка: В тексте упоминается снаряжение для поездки с палатками: 'For their camping trip, they brought their backpacks, sleeping bags...'." 
+                },
+                { 
+                    q: "Yellowstone National Park is a popular destination situated in ____.", 
+                    a: ["Australia", "America", "New Zealand", "Canada"], 
+                    correct: 1, 
+                    hint: "💡 Подсказка: В начале текста сказано, что парк находится в США ('first national park in the United States')." 
+                },
+                { 
+                    q: "Lisa and her friends waited for the geyser eruption for ____.", 
+                    a: ["about two hours", "an hour and half", "nearly an hour", "half an hour"], 
+                    correct: 3, 
+                    hint: "💡 Подсказка: В тексте указано время ожидания: 'After about 40 minutes'." 
+                },
+                { 
+                    q: "View of Yellowstone's natural cascades is ____.", 
+                    a: ["usual", "amazing", "frightening", "scary"], 
+                    correct: 2, 
+                    hint: "💡 Подсказка: Ищите описание водопадов в тексте (согласно ключу теста)." 
+                },
+                { 
+                    q: "Lisa and her friends hiked the trails of the park in order to see ____.", 
+                    a: ["wild birds of the park", "surroundings", "high mountains of the park", "amazing geysers of the park"], 
+                    correct: 1, 
+                    hint: "💡 Подсказка: В тексте сказано: 'hiked the trails of the park, exploring its natural surroundings'." 
+                },
+                { 
+                    q: "The text tells about ____.", 
+                    a: ["ecological tourism and its development", "abundance of the park’s nature and impression of tourists", "abundance of wild animals and birds", "interference of humans with nature"], 
+                    correct: 1, 
+                    hint: "💡 Подсказка: Текст описывает поездку Лизы и её друзей, богатую природу парка и их впечатления." 
+                },
+                { 
+                    q: "Lisa and her friends were mostly overwhelmed by ____.", 
+                    a: ["a family of grizzly bears", "natural cascades", "Boiling River", "Old Faithful"], 
+                    correct: 0, 
+                    hint: "💡 Подсказка: Сильные эмоции (удивление) были вызваны встречей с семьей медведей гризли ('Lisa was surprised to see a family of grizzly bears...')." 
+                },
+                { 
+                    q: "All of the following is true about Lisa’s trip except ____.", 
+                    a: ["they showed impatience", "saw a lot of local wildlife", "they saw the eruption of geysers", "they swam in the river"], 
+                    correct: 0, 
+                    hint: "💡 Подсказка: В тексте написано, что они ждали терпеливо ('waited patiently'), поэтому вариант про нетерпение (impatience) — неверный." 
+                }
+            ]
+        },
+            text6: {
+            title: "WONDERS OF EGYPT",
+            content: `For centuries, the pyramids of Giza have been timeless symbols of Egyptian culture. But who actually built them? For years, we did not know for sure. But archeologists recently discovered an ancient village near the pyramids. Close by, there was a cemetery where pyramid builders were buried. From studying these places, archeologists can now confirm that the pyramids were not built by slaves or foreigners (or space aliens!). Ordinary Egyptians built them. It took about eighty years to build the pyramids. According to archeologists, about 20,000-30,000 people were involved in completing the task. The workers had different roles. Some dug up the rock, some moved it, and some shaped it into blocks. People also worked in different teams, each with its own name. These teams often competed to do a job faster.  
+
+A Pyramid Builder's Life
+
+Life for these workers was hard. "We can see that in their skeletons," says Azza Mohamed Sarry El-Din, a scientist studying bodies found in the cemetery. The bones show signs of arthritis, which developed from carrying heavy things for a long time. Archeologists have also found many female skeletons in the village and cemetery. The damage to their bones is similar to that of the men. Their lives may have been even tougher: Male workers lived to age 40-45, but women to only 30-35. However, workers usually had enough food, and they also had medical care if they got sick or hurt. The work was challenging, but laborers were proud of their work. On a wall in Khufu's Great Pyramid, for example, a group of workers wrote Friends of Khufu. "It's because they were not just building the tomb of their king," says Egyptian archeologist Zahi Hawass. "They were building Egypt. It was a national project, and everyone was a participant."`,
+            questions: [
+                { 
+                    q: "Azza Mohamed Sarry El-Din is ____.", 
+                    a: ["an archeologist", "a builder", "a worker", "a scientist"], 
+                    correct: 3, 
+                    hint: "💡 Подсказка: В тексте прямо указано её звание: 'says Azza Mohamed Sarry El-Din, a scientist studying bodies...'." 
+                },
+                { 
+                    q: "The synonym of workers ____.", 
+                    a: ["archeologists", "aliens", "laborers", "foreigners"], 
+                    correct: 2, 
+                    hint: "💡 Подсказка: В тексте синонимом слова 'workers' (работники) в значении наемных рабочих выступает слово 'laborers'." 
+                },
+                { 
+                    q: "Life span of male laborers ____.", 
+                    a: ["30-35 years", "35-55 years", "50-56 years", "40-45 years"], 
+                    correct: 3, 
+                    hint: "💡 Подсказка: Ищите в тексте информацию о возрасте: 'Male workers lived to age 40-45'." 
+                },
+                { 
+                    q: "The synonym of dug up is ____.", 
+                    a: ["took out of the ground", "placed on the top", "broke into small pieces", "joined together"], 
+                    correct: 0, 
+                    hint: "💡 Подсказка: Выражение 'dug up' означает откапывать, доставать из земли ('took out of the ground')." 
+                },
+                { 
+                    q: "Find the false sentence ____.", 
+                    a: ["laborers didn't have food", "workers had enough food", "builders had medical care", "workers had meal to eat"], 
+                    correct: 0, 
+                    hint: "💡 Подсказка: Текст утверждает обратное — у работников была еда ('workers usually had enough food'), поэтому вариант про отсутствие еды является ложным." 
+                },
+                { 
+                    q: "Archeologists found an ancient village ____.", 
+                    a: ["on the rocks", "under the blocks", "close to the pyramids", "far from the cemetery"], 
+                    correct: 2, 
+                    hint: "💡 Подсказка: В первом абзаце написано: 'discovered an ancient village near the pyramids' (близко к пирамидам)." 
+                },
+                { 
+                    q: "Find the true sentence ____.", 
+                    a: ["100 years needed to finish the building of pyramids", "nearly 80 years needed to construct pyramids", "35 years needed to complete the building of pyramids", "150 years needed to build pyramids"], 
+                    correct: 1, 
+                    hint: "💡 Подсказка: В тексте указано время строительства: 'It took about eighty years' (около 80 лет)." 
+                },
+                { 
+                    q: "According to Azza Mohamed Sarry El-Din ____.", 
+                    a: ["builders were sick", "bones doesn't show signs of arthritis", "builders' skeletons show that their life was hard", "female skeletons were damaged"], 
+                    correct: 2, 
+                    hint: "💡 Подсказка: Ученый говорит: 'Life for these workers was hard. We can see that in their skeletons'." 
+                }
+            ]
+        }
     };
         
 let currentQuestions = [];
