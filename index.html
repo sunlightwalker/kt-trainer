@@ -24,6 +24,8 @@
     <button class="btn" onclick="startLevel('kt1')" style="background-color: #e8f5e9;">КТ Вариант 1</button>
     <button class="btn" onclick="startLevel('kt2')" style="background-color: #e8f5e9;">КТ Вариант 2</button>
     <button class="btn" onclick="startLevel('kt3')" style="background-color: #e8f5e9;">КТ Вариант 3</button>
+        <h3>Тексты:</h3>
+    <button class="btn" onclick="startText('text1')" style="background-color: #e3f2fd;">Текст: Sportswoman Daily Routine</button>
 </div>
 
     <div id="game-area">
@@ -31,6 +33,13 @@
     <div id="options-container"></div>
     <button class="btn" style="background-color: #fff3cd; margin-top: 15px;" onclick="showCurrentHint()">💡 Показать подсказку</button>
     <button class="btn" onclick="backToMenu()" style="margin-top: 20px;">Назад в меню</button>
+</div>
+    
+    <div id="text-area" style="display: none;">
+    <h2 id="text-title"></h2>
+    <div id="text-content" style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; line-height: 1.6; white-space: pre-line;"></div>
+    <button class="btn" onclick="proceedToTextQuestions()" style="background-color: #4CAF50; color: white;">Перейти к вопросам</button>
+    <button class="btn" onclick="backToMenu()" style="margin-top: 10px;">Назад в меню</button>
 </div>
     
     <script>
@@ -256,6 +265,25 @@
             { q: "It is high time … up to your responsibilities as a parent.", a: ["have faced", "be face", "faced", "to face"], correct: 3, hint: "Конструкция 'It is high time' может сопровождаться инфинитивом 'to face'." }
         ]  
 };
+        const texts = {
+        text1: {
+            title: "The daily routines of a sportswoman",
+            content: `Janet is an athlete, and she wakes up at 4:30 am every weekday morning. She spends the first 30 minutes reading and then 15 minutes meditating. At 5:15 am Janet checks her email for only 30 minutes and then goes for her first run of the day. She runs for an hour and a half along the lake near her house. After running, Janet has a shower and then prepares breakfast, which is usually cereal and fruit. However, she occasionally has a less healthy breakfast.
+She usually finishes breakfast at around 8 am. If it is a weekday, she always leaves the house at 8:20 and goes to training. Her training starts at 9 am, and she needs 30 minutes to drive to the gym. She trains for 3 hours with her team. She always eats a very big and healthy lunch. As soon as she finishes lunch, she has a nap for one hour.
+After her nap, she likes to go for a walk around the lake and look at nature. She sometimes reads or meditates at the lake in the afternoon. During the week, she meets up with friends. Most of her friends are athletes too.
+She typically goes to bed at 9 pm because she prefers to be awake in the morning than at night. She sometimes falls asleep listening to music, but she never watches the television or reads anything on her tablet. She always makes sure her alarm is set and is almost always asleep by 9:45 pm.`,
+            questions: [
+                { q: "What does she do after reading according to the text?", a: ["She writes.", "She meditates.", "She cooks.", "She reads."], correct: 1, hint: "Смотрите первое предложение текста." },
+                { q: "Where does she run?", a: ["along the lake near her house", "along the ocean near her house", "along the river near her house", "along the sea near her house"], correct: 0, hint: "Ищите ключевое слово 'lake'." },
+                { q: "Who is an athlete?", a: ["Jane", "Jacob", "Janet", "Jan"], correct: 2, hint: "Имя главной героини в самом начале." },
+                { q: "What is this text about?", a: ["This text is about garden.", "This text is about suburb.", "This text is about movie.", "This text is about the daily routines of a sportswoman."], correct: 3, hint: "Тема текста отражена в названии." },
+                { q: "What does Janet do at quarter past five?", a: ["checks her email", "cooks", "plays baseball", "runs"], correct: 0, hint: "Quarter past five — это 5:15." },
+                { q: "What does Janet eat according to the text?", a: ["unhealthy lunch", "burgers and Coke", "pizza and coffee", "healthy food"], correct: 3, hint: "Она ест 'very big and healthy lunch'." },
+                { q: "What is her hobby?", a: ["She likes singing songs.", "She likes writing poems.", "She likes cooking pies.", "She likes doing in for sport."], correct: 3, hint: "Она профессиональная спортсменка." },
+                { q: "What does she usually eat for breakfast?", a: ["soup and salad", "porridge and toast", "bread and butter", "cereal and fruit"], correct: 3, hint: "Завтрак: 'cereal and fruit'." }
+            ]
+        }
+    };
         
 let currentQuestions = [];
 let currentIndex = 0;
@@ -316,6 +344,29 @@ function startLevel(lvl) {
         alert("К этому вопросу подсказка не предусмотрена.");
     }
 }
+        let activeTextKey = null;
+
+    // Функция открытия текста перед вопросами
+    function startText(textKey) {
+        activeTextKey = textKey;
+        const textObj = texts[textKey];
+        
+        document.getElementById('text-title').innerText = textObj.title;
+        document.getElementById('text-content').innerText = textObj.content;
+        
+        document.getElementById('menu').style.display = 'none';
+        document.getElementById('text-area').style.display = 'block';
+    }
+
+    // Функция перехода от чтения текста к вопросам
+    function proceedToTextQuestions() {
+        currentQuestions = texts[activeTextKey].questions;
+        currentIndex = 0;
+        
+        document.getElementById('text-area').style.display = 'none';
+        document.getElementById('game-area').style.display = 'block';
+        showQuestion();
+    }
     </script>
 </body>
 </html>
