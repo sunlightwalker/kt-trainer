@@ -26,6 +26,7 @@
     <button class="btn" onclick="startLevel('kt3')" style="background-color: #e8f5e9;">КТ Вариант 3</button>
         <h3>Тексты:</h3>
     <button class="btn" onclick="startText('text1')" style="background-color: #e3f2fd;">Текст: Sportswoman Daily Routine</button>
+    <button class="btn" onclick="startText('text2')" style="background-color: #e3f2fd;">Текст: My neighborhood</button>
 </div>
 
     <div id="game-area">
@@ -289,6 +290,24 @@ She typically goes to bed at 9 pm because she prefers to be awake in the morning
                 { q: "What does Janet eat according to the text?", a: ["unhealthy lunch", "burgers and Coke", "pizza and coffee", "healthy food"], correct: 3, hint: "Она ест 'very big and healthy lunch'." },
                 { q: "What is her hobby?", a: ["She likes singing songs.", "She likes writing poems.", "She likes cooking pies.", "She likes doing in for sport."], correct: 3, hint: "Она профессиональная спортсменка." },
                 { q: "What does she usually eat for breakfast?", a: ["soup and salad", "porridge and toast", "bread and butter", "cereal and fruit"], correct: 3, hint: "Завтрак: 'cereal and fruit'." }
+            ]
+        },
+            text2: {
+            title: "My neighborhood",
+            content: `My neighborhood is very peaceful and quiet. It is a new neighborhood, and there are a lot of big houses and some apartment buildings. The streets are very clean, and there aren’t many cars.
+There’s also a park, which has a small playground for children and a large field. I like to play baseball with my friends. All of the houses have a small front yard but big back yards. Most of my neighbors have a swimming pool, and some even have a trampoline!
+Everyone has a flower garden, and in the spring, it is very beautiful. My road is called Maple Road. It is not in the city. It’s in the suburbs. There aren’t any restaurants, bars or cinemas on my road. But, if you go to Main street, you can find a lot of things to do. My favorite store is there. It’s called Knick-Knack, and they sell everything you can imagine.
+I like my neighborhood because it is very safe. There is no crime, and all of my neighbors take care of each other. The police station is next to the school, which is very nice. However, the hospital is quite far. It is in the city, and we have to drive 30 minutes to get there.
+My friends live near me, and we often meet up to play or just talk. We love playing hockey in the street because there isn’t any traffic. I think, I am lucky to live in my neighborhood.`,
+            questions: [
+                { q: "What kind of streets do they have according to the text?", a: ["narrow", "clean", "wide", "dirty"], correct: 1, hint: "В тексте сказано: 'The streets are very clean...'." },
+                { q: "The hospital is …. ?", a: ["near", "quite far", "behind", "next to"], correct: 1, hint: "Ищите фразу: 'However, the hospital is quite far'." },
+                { q: "According to the text, it is ………. ?", a: ["safety suburb", "criminal suburb", "famous suburb", "comfortable village"], correct: 0, hint: "Текст описывает безопасный пригород ('safe' / 'suburb')." },
+                { q: "Where are the restaurants, bars and cinemas?", a: ["in Maple Road", "Knick-Knack", "near my home", "in the Main street"], correct: 3, hint: "В тексте: 'if you go to Main street, you can find a lot of things to do' (включая рестораны и бары)." },
+                { q: "What do they have in their yard?", a: ["a swimming pool", "a collection of letters", "a bench", "a collection of novels"], correct: 0, hint: "У соседей во дворе есть бассейн ('swimming pool')." },
+                { q: "According to the text, is the police station ______ the school?", a: ["behind", "next to", "in the right side", "in front of"], correct: 1, hint: "В тексте: 'The police station is next to the school'." },
+                { q: "What is this text about?", a: ["This text is about suburb.", "This text is about movie.", "This text is about yard.", "This text is about garden."], correct: 0, hint: "Текст рассказывает о районе и пригороде ('suburb')." },
+                { q: "How is his road called?", a: ["Maple Road", "Knick-Knack", "Main street", "Road"], correct: 0, hint: "В тексте: 'My road is called Maple Road'." }
             ]
         }
     };
