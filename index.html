@@ -13,33 +13,66 @@
 </head>
 <body>
 
-<div class="mb-6">
-    <button onclick="document.getElementById('rules-box').classList.toggle('hidden')" 
-            class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-        📖 Показать понятные правила
+<div class="max-w-3xl mx-auto mb-8">
+    <button onclick="toggleRules()" 
+            class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg flex justify-between items-center px-6">
+        <span>📖 Подробный справочник по грамматике</span>
+        <span id="toggle-icon">▼</span>
     </button>
     
-    <!-- Скрытый блок с подробными правилами -->
-    <div id="rules-box" class="hidden mt-4 p-5 bg-blue-50 rounded-lg border border-blue-200 text-slate-800 space-y-4">
+    <div id="rules-box" class="hidden mt-4 p-6 bg-white border border-indigo-100 rounded-2xl shadow-sm text-slate-700 space-y-6">
+        <!-- 1 -->
         <div>
-            <p class="font-bold text-blue-900">1. Пассивный залог (Passive Voice)</p>
-            <p class="text-sm">Когда действие важнее того, кто его совершил. Например: «Дом был построен» (а не «Строитель построил дом»). Формула всегда: <b>быть (to be) + глагол в 3-й форме</b>.</p>
+            <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">1. Passive Voice (Пассивный залог)</h4>
+            <p class="text-sm italic text-slate-500 mb-1">"Объект не делает действие, а принимает его"</p>
+            <ul class="text-sm list-disc list-inside space-y-1">
+                <li><b>Формула:</b> be + V3 (3-я форма глагола).</li>
+                <li><b>Present Simple:</b> is/are built (обычно строится).</li>
+                <li><b>Past Simple:</b> was/were built (был построен вчера).</li>
+                <li><b>Continuous (сейчас):</b> is being built (строится прямо сейчас).</li>
+                <li><b>Perfect:</b> has/have been built (уже построен).</li>
+            </ul>
         </div>
+        <!-- 2 -->
         <div>
-            <p class="font-bold text-blue-900">2. Условные предложения (Conditionals)</p>
-            <p class="text-sm">Это предложения с «Если». Самое простое: If + настоящее время, результат в будущем. Например: «Если пойду в магазин, куплю хлеб».</p>
+            <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">2. Conditionals (Условия "Если")</h4>
+            <ul class="text-sm list-disc list-inside space-y-1">
+                <li><b>Zero (Факт):</b> If + Present, Present. (If you heat, it boils).</li>
+                <li><b>First (Реальное):</b> If + Present, will + V. (If I have time, I'll call).</li>
+                <li><b>Second (Нереальное):</b> If + Past, would + V. (If I were you, I'd study). <i>Важно: везде "were".</i></li>
+                <li><b>Third (Прошлое):</b> If + Past Perfect (had V3), would have + V3.</li>
+            </ul>
         </div>
+        <!-- 3 -->
         <div>
-            <p class="font-bold text-blue-900">3. Косвенная речь (Reported Speech)</p>
-            <p class="text-sm">Пересказ чужих слов. Главное правило: если мы говорим «он сказал, что...», времена в предложении «отступают» назад. Например: «Я иду» превращается в «Он сказал, что он шел».</p>
+            <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">3. Reported Speech (Косвенная речь)</h4>
+            <p class="text-sm">Меняем время на "шаг назад" при пересказе:</p>
+            <ul class="text-sm list-disc list-inside space-y-1">
+                <li>is/am/are → <b>was/were</b></li>
+                <li>will → <b>would</b> | can → <b>could</b></li>
+                <li>Present → <b>Past</b> | Past → <b>Past Perfect (had V3)</b></li>
+                <li><b>Слова:</b> now → then, today → that day, tomorrow → the next day, here → there.</li>
+            </ul>
         </div>
+        <!-- 4 -->
         <div>
-            <p class="font-bold text-blue-900">4. Модальные глаголы (Modal Verbs)</p>
-            <p class="text-sm">Это помощники для выражения отношения: <i>can</i> (могу/умею), <i>must</i> (должен), <i>should</i> (следует). После них глагол всегда стоит в своей начальной форме без «to».</p>
+            <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">4. Modal Verbs (Модальные)</h4>
+            <ul class="text-sm list-disc list-inside space-y-1">
+                <li><b>Must:</b> Обязанность или сильная уверенность ("он должно быть дома").</li>
+                <li><b>Must have V3:</b> Уверенность в том, что случилось в прошлом ("он должно быть забыл").</li>
+                <li><b>Should:</b> Совет. <i>Should have V3:</i> упрек за невыполненное действие в прошлом.</li>
+                <li><b>Can't:</b> Не может быть (в настоящем).</li>
+            </ul>
         </div>
+        <!-- 5 -->
         <div>
-            <p class="font-bold text-blue-900">5. Ловушки (Mixed Traps)</p>
-            <p class="text-sm">Самый сложный уровень. Здесь нужно смотреть на детали: время глагола, слова-помощники (вчера, завтра) и смысл. Не торопись и читай всё предложение целиком!</p>
+            <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">5. Герундий, Инфинитив и Предлоги</h4>
+            <ul class="text-sm list-disc list-inside space-y-1">
+                <li><b>-ing (Герундий):</b> После enjoy, avoid, look forward to, be used to, worth, admit.</li>
+                <li><b>to + V (Инфинитив):</b> После manage, agree, decide, remind + smb + to.</li>
+                <li><b>Без "to":</b> После make, let, would rather.</li>
+                <li><b>Предлоги:</b> afraid <b>of</b>, good <b>at</b>, interested <b>in</b>, insist <b>on</b>, congratulate <b>on</b>.</li>
+            </ul>
         </div>
     </div>
 </div>
@@ -1303,6 +1336,12 @@ function startLevel(lvl) {
 
     function closeReadingModal() {
         document.getElementById('reading-modal').style.display = 'none';
+    }
+        function toggleRules() {
+        const box = document.getElementById('rules-box');
+        const icon = document.getElementById('toggle-icon');
+        box.classList.toggle('hidden');
+        icon.innerText = box.classList.contains('hidden') ? '▼' : '▲';
     }
     </script>
 </body>
