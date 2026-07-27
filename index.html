@@ -13,6 +13,21 @@
 </head>
 <body>
 
+<div class="mb-6">
+    <button onclick="document.getElementById('rules-box').classList.toggle('hidden')" 
+            class="w-full bg-slate-800 text-white py-3 rounded-lg font-semibold hover:bg-slate-700 transition">
+        Показать правила уровней
+    </button>
+    
+    <div id="rules-box" class="hidden mt-4 p-4 bg-slate-100 rounded-lg border border-slate-200 text-sm text-slate-700 space-y-2">
+        <p><strong>1. Пассивный залог:</strong> Меняйте подлежащее и дополнение, не забывая про форму глагола to be.</p>
+        <p><strong>2. Conditionals:</strong> Следите за временем: If + Present, Future; If + Past, Would.</p>
+        <p><strong>3. Косвенная речь:</strong> Не забывайте сдвигать времена назад при переносе слов.</p>
+        <p><strong>4. Modal Verbs:</strong> Выбирайте глагол по смыслу: ability, permission или obligation.</p>
+        <p><strong>5. Mixed Traps:</strong> Внимательно проверяйте время и тип предложения.</p>
+    </div>
+</div>
+    
     <div id="menu">
         <h1>Выберите уровень:</h1>
         <button class="btn" onclick="startLevel('level1')">Уровень 1: Пассивный залог</button>
