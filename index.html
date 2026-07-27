@@ -13,69 +13,119 @@
 </head>
 <body>
 
-<div class="max-w-3xl mx-auto mb-8">
-    <button onclick="toggleRules()" 
-            class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg flex justify-between items-center px-6">
-        <span>📖 Подробный справочник по грамматике</span>
-        <span id="toggle-icon">▼</span>
-    </button>
-    
-    <div id="rules-box" class="hidden mt-4 p-6 bg-white border border-indigo-100 rounded-2xl shadow-sm text-slate-700 space-y-6">
-        <!-- 1 -->
-        <div>
-            <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">1. Passive Voice (Пассивный залог)</h4>
-            <p class="text-sm italic text-slate-500 mb-1">"Объект не делает действие, а принимает его"</p>
-            <ul class="text-sm list-disc list-inside space-y-1">
-                <li><b>Формула:</b> be + V3 (3-я форма глагола).</li>
-                <li><b>Present Simple:</b> is/are built (обычно строится).</li>
-                <li><b>Past Simple:</b> was/were built (был построен вчера).</li>
-                <li><b>Continuous (сейчас):</b> is being built (строится прямо сейчас).</li>
-                <li><b>Perfect:</b> has/have been built (уже построен).</li>
-            </ul>
+<div class="mb-8">
+            <button id="toggle-rules-btn" 
+                    type="button"
+                    class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg flex justify-between items-center px-6">
+                <span>📖 Шпаргалка: Правила для теста</span>
+                <span id="toggle-icon">▼</span>
+            </button>
+
+                <div id="rules-box" class="hidden-rules mt-4 p-6 bg-white border border-indigo-100 rounded-2xl shadow-sm text-slate-700 space-y-6">
+                <!-- 1 -->
+                <div>
+                    <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">1. Passive Voice (Пассивный залог)</h4>
+                    <p class="text-sm italic text-slate-500 mb-1">"Объект не делает действие сам, а испытывает его на себе"</p>
+                    <ul class="text-sm list-disc list-inside space-y-1">
+                        <li><b>Формула:</b> be + V3 (3-я форма глагола / -ed).</li>
+                        <li><b>Present Simple:</b> is/are built (обычно строится).</li>
+                        <li><b>Past Simple:</b> was/were built (был построен вчера).</li>
+                        <li><b>Continuous (сейчас):</b> is being built (строится прямо сейчас).</li>
+                        <li><b>Perfect:</b> has/have been built (уже построен).</li>
+                        <li><b>Модальные глаголы:</b> can / must / should + be + V3.</li>
+                    </ul>
+                </div>
+                <!-- 2 -->
+                <div>
+                    <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">2. Conditionals (Условные предложения)</h4>
+                    <ul class="text-sm list-disc list-inside space-y-1">
+                        <li><b>Zero (Факт):</b> If + Present, Present. (<i>If you heat metal, it expands.</i>)</li>
+                        <li><b>First (Реальное будущее):</b> If + Present, will + V. (<i>If I have time, I will call.</i>)</li>
+                        <li><b>Second (Нереальное настоящее):</b> If + Past, would + V. (<i>If I were you, I would study.</i> <b>Важно:</b> с I/he/she/it всегда <i>were</i>).</li>
+                        <li><b>Third (Сожаление о прошлом):</b> If + Past Perfect (had V3), would have + V3.</li>
+                        <li><b>Unless:</b> означает "if not" (если не), поэтому дополнительное отрицание не нужно.</li>
+                    </ul>
+                </div>
+                <!-- 3 -->
+                <div>
+                    <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">3. Reported Speech (Косвенная речь)</h4>
+                    <p class="text-sm mb-1">Делаем "шаг назад" по временам, если вводный глагол в прошлом (<i>He said...</i>):</p>
+                    <ul class="text-sm list-disc list-inside space-y-1">
+                        <li>is / am / are → <b>was / were</b></li>
+                        <li>will → <b>would</b> | can → <b>could</b></li>
+                        <li>Present Simple → <b>Past Simple</b> | Past Simple → <b>Past Perfect (had V3)</b></li>
+                        <li>Present Perfect → <b>Past Perfect (had V3)</b></li>
+                        <li><b>Замена слов:</b> now → then | today → that day | tomorrow → the next day | yesterday → the day before | here → there | this → that.</li>
+                    </ul>
+                </div>
+                <!-- 4 -->
+                <div>
+                    <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">4. Modal Verbs (Модальные глаголы)</h4>
+                    <ul class="text-sm list-disc list-inside space-y-1">
+                        <li><b>Should / Should have V3:</b> Совет / Упрек за прошлое действие.</li>
+                        <li><b>Must:</b> Строгая обязанность или сильная уверенность (<i>He must be home</i>).</li>
+                        <li><b>Must have V3:</b> Уверенность в том, что произошло в прошлом (<i>He must have forgotten</i>).</li>
+                        <li><b>Might / Could:</b> Вероятность или возможность.</li>
+                        <li><b>Mustn't:</b> Строгий запрет.</li>
+                        <li><b>Don't have to:</b> Отсутствие необходимости ("необязательно").</li>
+                        <li><b>Shall I...? / Shall we...?</b> Вежливое предложение помощи или совместного действия.</li>
+                    </ul>
+                </div>
+                <!-- 5 -->
+                <div>
+                    <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">5. Gerund, Infinitive & Prepositions (Герундий, Инфинитив, Предлоги)</h4>
+                    <ul class="text-sm list-disc list-inside space-y-1">
+                        <li><b>-ing (Герундий):</b> После <i>enjoy, avoid, look forward to, be used to, it's worth, stop (прекратить действие)</i>.</li>
+                        <li><b>to + V (Инфинитив):</b> После <i>manage, decide, agree, remind (smb) to, stop (остановиться, чтобы сделать что-то)</i>.</li>
+                        <li><b>Без "to":</b> После <i>make (заставлять), let (разрешать), would rather</i>.</li>
+                        <li><b>Устойчивые предлоги:</b> afraid <b>of</b>, good <b>at</b>, interested <b>in</b>, insist <b>on</b>, congratulate <b>on</b>, tired <b>of</b>, apologize <b>for</b>.</li>
+                        <li><b>Исключение:</b> <i>Information, news</i> — неисчисляемые (артикль 'a/an' не используется, глагол в ед. числе).</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <!-- 2 -->
-        <div>
-            <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">2. Conditionals (Условия "Если")</h4>
-            <ul class="text-sm list-disc list-inside space-y-1">
-                <li><b>Zero (Факт):</b> If + Present, Present. (If you heat, it boils).</li>
-                <li><b>First (Реальное):</b> If + Present, will + V. (If I have time, I'll call).</li>
-                <li><b>Second (Нереальное):</b> If + Past, would + V. (If I were you, I'd study). <i>Важно: везде "were".</i></li>
-                <li><b>Third (Прошлое):</b> If + Past Perfect (had V3), would have + V3.</li>
-            </ul>
+
+        <!-- Progress Bar -->
+        <div class="mb-6 bg-slate-200 rounded-full h-2.5 overflow-hidden">
+            <div id="progress-bar" class="bg-indigo-600 h-2.5 transition-all duration-500" style="width: 0%"></div>
         </div>
-        <!-- 3 -->
-        <div>
-            <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">3. Reported Speech (Косвенная речь)</h4>
-            <p class="text-sm">Меняем время на "шаг назад" при пересказе:</p>
-            <ul class="text-sm list-disc list-inside space-y-1">
-                <li>is/am/are → <b>was/were</b></li>
-                <li>will → <b>would</b> | can → <b>could</b></li>
-                <li>Present → <b>Past</b> | Past → <b>Past Perfect (had V3)</b></li>
-                <li><b>Слова:</b> now → then, today → that day, tomorrow → the next day, here → there.</li>
-            </ul>
+
+        <!-- Quiz Container -->
+        <div id="quiz-screen" class="bg-white rounded-2xl shadow-xl p-6 md:p-10 border border-slate-100">
+            <div class="flex justify-between items-center mb-6">
+                <span id="question-counter" class="text-sm font-semibold px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full">Вопрос 1 из 30</span>
+                <span id="score-display" class="text-sm font-medium text-slate-500">Верно: 0</span>
+            </div>
+
+            <h2 id="question-text" class="text-xl font-bold text-slate-800 mb-8 leading-tight">Загрузка вопроса...</h2>
+
+            <div id="options-container" class="space-y-3">
+                <!-- Варианты ответов подставляются из JS -->
+            </div>
+
+            <div id="feedback" class="mt-8 p-4 rounded-xl hidden">
+                <p id="feedback-text" class="text-sm font-medium"></p>
+            </div>
+
+            <button id="next-btn" class="mt-8 w-full py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg hidden">
+                Следующий вопрос
+            </button>
         </div>
-        <!-- 4 -->
-        <div>
-            <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">4. Modal Verbs (Модальные)</h4>
-            <ul class="text-sm list-disc list-inside space-y-1">
-                <li><b>Must:</b> Обязанность или сильная уверенность ("он должно быть дома").</li>
-                <li><b>Must have V3:</b> Уверенность в том, что случилось в прошлом ("он должно быть забыл").</li>
-                <li><b>Should:</b> Совет. <i>Should have V3:</i> упрек за невыполненное действие в прошлом.</li>
-                <li><b>Can't:</b> Не может быть (в настоящем).</li>
-            </ul>
-        </div>
-        <!-- 5 -->
-        <div>
-            <h4 class="font-bold text-indigo-900 border-b pb-1 mb-2">5. Герундий, Инфинитив и Предлоги</h4>
-            <ul class="text-sm list-disc list-inside space-y-1">
-                <li><b>-ing (Герундий):</b> После enjoy, avoid, look forward to, be used to, worth, admit.</li>
-                <li><b>to + V (Инфинитив):</b> После manage, agree, decide, remind + smb + to.</li>
-                <li><b>Без "to":</b> После make, let, would rather.</li>
-                <li><b>Предлоги:</b> afraid <b>of</b>, good <b>at</b>, interested <b>in</b>, insist <b>on</b>, congratulate <b>on</b>.</li>
-            </ul>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="bg-white rounded-2xl shadow-xl p-10 text-center border border-slate-100 hidden">
+            <div class="mb-6 inline-flex p-4 bg-indigo-50 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <h2 class="text-3xl font-bold text-slate-800 mb-2">Тест завершен!</h2>
+            <p id="final-score" class="text-lg text-slate-600 mb-8 font-medium">Ваш результат: 0 из 30</p>
+            <button onclick="location.reload()" class="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg">
+                Пройти еще раз
+            </button>
         </div>
     </div>
-</div>
     
     <div id="menu">
         <h1>Выберите уровень:</h1>
@@ -128,6 +178,25 @@
     </div>
 
     <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('toggle-rules-btn');
+            const box = document.getElementById('rules-box');
+            const icon = document.getElementById('toggle-icon');
+
+            if (btn && box && icon) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    box.classList.toggle('hidden-rules');
+                    
+                    if (box.classList.contains('hidden-rules')) {
+                        icon.innerText = '▼';
+                    } else {
+                        icon.innerText = '▲';
+                    }
+                });
+            }
+        });
         const grammarLevels = {
             level1: [
     { q: "The skyscraper ___ by a famous architect last year.", a: ["designs", "was designed", "designed"], correct: 1, hint: "Passive Voice в прошлом (last year): объект не делает действие сам, используем was/were + V3." },
@@ -1343,23 +1412,7 @@ function startLevel(lvl) {
         box.classList.toggle('hidden');
         icon.innerText = box.classList.contains('hidden') ? '▼' : '▲';
     }
-        document.addEventListener('DOMContentLoaded', function() {
-        const btn = document.getElementById('rules-btn');
-        const box = document.getElementById('rules-box');
-        const icon = document.getElementById('toggle-icon');
 
-        btn.addEventListener('click', function() {
-            // Переключаем класс hidden
-            box.classList.toggle('hidden');
-            
-            // Меняем текст иконки
-            if (box.classList.contains('hidden')) {
-                icon.innerText = '▼';
-            } else {
-                icon.innerText = '▲';
-            }
-        });
-    });
     </script>
 </body>
 </html>
