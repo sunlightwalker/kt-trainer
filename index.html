@@ -1343,6 +1343,23 @@ function startLevel(lvl) {
         box.classList.toggle('hidden');
         icon.innerText = box.classList.contains('hidden') ? '▼' : '▲';
     }
+        document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('rules-btn');
+        const box = document.getElementById('rules-box');
+        const icon = document.getElementById('toggle-icon');
+
+        btn.addEventListener('click', function() {
+            // Переключаем класс hidden
+            box.classList.toggle('hidden');
+            
+            // Меняем текст иконки
+            if (box.classList.contains('hidden')) {
+                icon.innerText = '▼';
+            } else {
+                icon.innerText = '▲';
+            }
+        });
+    });
     </script>
 </body>
 </html>
